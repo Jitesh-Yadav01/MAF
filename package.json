@@ -1,32 +1,15 @@
 {
-  "name": "maf-security-layer",
+  "name": "maf-ai-firewall",
   "version": "1.0.0",
-  "description": "Model Application Firewall - Request Security Layer",
-  "main": "src/middleware/gateway.js",
+  "description": "AI-First Model Application Firewall",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "test": "jest"
+    "start": "node src/index.js"
   },
-  "keywords": [
-    "security",
-    "middleware",
-    "firewall",
-    "ai",
-    "nodejs"
-  ],
-  "author": "Antigravity",
-  "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.2",
-    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongoose": "^8.0.3",
-    "uuid": "^9.0.1",
-    "zod": "^3.22.4"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0",
-    "nodemon": "^3.0.2"
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "mongoose": "^8.0.0"
   }
 }

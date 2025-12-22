@@ -1,39 +1,91 @@
+require('dotenv').config();
 const express = require('express');
-const config = require('./config');
-const gateway = require('./middleware/gateway');
-const logger = require('./core/logger');
+const path = require('path');
+const AIFirewall = require('./ai-firewall');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use(gateway);
+const firewall = new AIFirewall(
+    process.env.OPENROUTER_API_KEY,
+    process.env.MAF_MODE || 'BLOCK',
+    process.env.MONGO_URL
+);
 
-if (config.DASHBOARD_PORT) {
-    const dashboardApp = express();
-    dashboardApp.use(express.json());
+app.use(firewall.middleware());
 
-    const path = require('path');
-    dashboardApp.use('/', express.static(path.join(__dirname, 'dashboard', 'public')));
+const dashboardApp = express();
+const DASHBOARD_PORT = 3001;
 
-    dashboardApp.use('/api', require('./dashboard'));
+// Dashboard API
+dashboardApp.get('/api/events', async (req, res) => {
+    try {
+        const events = await firewall.logger.getEvents(100);
+        res.json(events);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-    dashboardApp.listen(config.DASHBOARD_PORT, () => {
-        console.log(`📊 Dashboard API running on http://localhost:${config.DASHBOARD_PORT}`);
+dashboardApp.get('/api/stats', async (req, res) => {
+    const events = await firewall.logger.getEvents(1000);
+    const blocked = events.filter(e => e.blocked).length;
+    const threats = events.filter(e => e.threat).length;
+    res.json({
+        total: events.length,
+        blocked,
+        threats,
+        uptime: process.uptime()
     });
-}
+});
 
+// Serve Dashboard UI
+dashboardApp.use(express.static(path.join(__dirname, '../dashboard/dist')));
+dashboardApp.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dashboard/dist/index.html'));
+});
+
+dashboardApp.listen(DASHBOARD_PORT, () => {
+    console.log('[Dashboard] Running on http://localhost:' + DASHBOARD_PORT);
+});
+
+// Start Unprotected Server (Port 3002)
+require('./insecure-server');
+
+// Main Gateway App (Port 3000)
 app.get('/', (req, res) => {
-    res.send('<h1>MAF Secured App</h1><p>If you see this, you passed the firewall.</p>');
+    res.sendFile(path.join(__dirname, 'demo', 'login.html'));
 });
 
 app.post('/api/login', (req, res) => {
-    res.json({ message: 'Login flow triggered', status: 'ok' });
+    const { username, password } = req.body;
+
+    const simulatedQuery = `SELECT * FROM users WHERE username='${username}' AND password='${password}'`;
+    console.log('[Backend] Executing:', simulatedQuery);
+
+    if (username.includes("'") || username.includes("OR")) {
+        return res.json({
+            status: 'success',
+            message: 'SQL Injection succeeded! (You should never see this)',
+            query: simulatedQuery
+        });
+    }
+
+    res.status(401).json({
+        status: 'error',
+        message: 'Invalid credentials'
+    });
 });
 
-app.get('/health', (req, res) => res.json({ status: 'ok' }));
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok' });
+});
 
-app.listen(config.PORT, () => {
-    console.log(`🛡️  MAF Gateway running on http://localhost:${config.PORT}`);
-    console.log(`⚙️  Mode: ${config.MAF_MODE}`);
+app.listen(PORT, () => {
+    console.log('[MAF] AI-First Firewall running on http://localhost:' + PORT);
+    console.log('[MAF] Mode:', process.env.MAF_MODE || 'BLOCK');
+    console.log('[MAF] API Key:', process.env.OPENROUTER_API_KEY ? 'Configured' : 'MISSING!');
 });
