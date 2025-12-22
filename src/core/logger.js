@@ -53,6 +53,8 @@ class Logger {
     }
 
     async getEvents(filter = {}, limit = 50, skip = 0) {
+        if (!this.connected) return [];
+
         return await EventModel.find(filter)
             .sort({ timestamp: -1 })
             .skip(skip)
@@ -61,6 +63,8 @@ class Logger {
     }
 
     async getStats() {
+        if (!this.connected) return { total: 0, blocked: 0 };
+
         const total = await EventModel.countDocuments();
         const blocked = await EventModel.countDocuments({ decision: 'BLOCK' });
         return { total, blocked };

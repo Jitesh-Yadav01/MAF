@@ -31,6 +31,7 @@ class RiskEngine {
             try {
                 const aiResult = await aiAdapter.evaluateRisk(signals);
                 if (aiResult) {
+                    console.log('🤖 AI Output:', aiResult);
                     aiAnalysis = aiResult;
                     if (aiResult.confidence > 0.7) {
                         if (aiResult.suggestion === 'BLOCK') score += 30;

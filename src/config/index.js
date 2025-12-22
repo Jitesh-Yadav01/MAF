@@ -8,7 +8,6 @@ const configSchema = z.object({
     MAF_AI_ENABLED: z.string().transform((val) => val === 'true').default('false'),
     MAF_AI_PROVIDER: z.string().default('openrouter'),
     MAF_AI_API_KEY: z.string().optional(),
-    REDIS_URL: z.string().default('redis://localhost:6379'),
     MONGO_URL: z.string().default('mongodb://localhost:27017/maf'),
     RISK_THRESHOLD_BLOCK: z.coerce.number().default(80),
     RISK_THRESHOLD_DROP: z.coerce.number().default(95),

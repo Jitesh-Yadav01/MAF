@@ -1,61 +1,41 @@
-const Redis = require('ioredis');
-const config = require('../config');
-
 class SessionManager {
     constructor() {
-        this.redis = new Redis(config.REDIS_URL, {
-            retryStrategy: (times) => Math.min(times * 50, 2000),
-        });
-
-        this.redis.on('error', (err) => {
-            console.error('Redis Error:', err);
-        });
+        this.sessions = new Map();
+        this.cleanupInterval = setInterval(() => this.cleanup(), 60000);
     }
 
     getKey(sessionId) {
-        return `maf:sess:${sessionId}`;
+        return `sess:${sessionId}`;
     }
 
     async getSession(sessionId) {
-        const key = this.getKey(sessionId);
-        const data = await this.redis.hgetall(key);
+        const data = this.sessions.get(sessionId);
 
-        if (!data || Object.keys(data).length === 0) {
+        if (!data) {
             return null;
         }
 
-        if (data.history) {
-            try {
-                data.history = JSON.parse(data.history);
-            } catch (e) {
-                data.history = [];
-            }
-        }
-
-        if (data.riskScore) data.riskScore = parseInt(data.riskScore, 10);
-
-        return data;
+        return JSON.parse(JSON.stringify(data));
     }
 
     async createOrUpdateSession(sessionId, updates, ttlSeconds = 3600) {
-        const key = this.getKey(sessionId);
+        let current = this.sessions.get(sessionId) || {};
 
-        const pipeline = this.redis.pipeline();
+        const updatedSession = {
+            ...current,
+            ...updates,
+            expiresAt: Date.now() + (ttlSeconds * 1000)
+        };
 
-        const safeUpdates = { ...updates };
-        if (safeUpdates.history) {
-            safeUpdates.history = JSON.stringify(safeUpdates.history);
+        if (updates.history) {
+            updatedSession.history = updates.history;
         }
 
-        pipeline.hset(key, safeUpdates);
-        pipeline.expire(key, ttlSeconds);
-
-        await pipeline.exec();
+        this.sessions.set(sessionId, updatedSession);
     }
 
     async dropSession(sessionId) {
-        const key = this.getKey(sessionId);
-        await this.redis.del(key);
+        this.sessions.delete(sessionId);
     }
 
     async updateHistory(sessionId, eventMeta, windowSize = 10) {
@@ -69,6 +49,15 @@ class SessionManager {
         }
 
         await this.createOrUpdateSession(sessionId, { history });
+    }
+
+    cleanup() {
+        const now = Date.now();
+        for (const [id, session] of this.sessions.entries()) {
+            if (session.expiresAt && session.expiresAt < now) {
+                this.sessions.delete(id);
+            }
+        }
     }
 }
 

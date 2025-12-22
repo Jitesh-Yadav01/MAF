@@ -15,13 +15,12 @@ const authMiddleware = (req, res, next) => {
 router.get('/health', (req, res) => res.json({ status: 'ok' }));
 
 router.get('/ready', async (req, res) => {
-    const redisOk = sessionManager.redis.status === 'ready';
     const mongoOk = logger.connected;
 
-    if (redisOk && mongoOk) {
-        res.json({ status: 'ready', redis: 'ok', mongo: 'ok' });
+    if (mongoOk) {
+        res.json({ status: 'ready', mongo: 'ok', sessionStore: 'memory' });
     } else {
-        res.status(503).json({ status: 'not_ready', redis: redisOk ? 'ok' : 'down', mongo: mongoOk ? 'ok' : 'down' });
+        res.status(503).json({ status: 'not_ready', mongo: mongoOk ? 'ok' : 'down' });
     }
 });
 

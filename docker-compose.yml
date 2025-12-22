@@ -1,16 +1,6 @@
 version: '3.8'
 
 services:
-  maf-redis:
-    image: redis:alpine
-    container_name: maf-redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    networks:
-      - maf-net
-
   maf-mongo:
     image: mongo:latest
     container_name: maf-mongo
@@ -22,7 +12,6 @@ services:
       - maf-net
 
 volumes:
-  redis_data:
   mongo_data:
 
 networks:
