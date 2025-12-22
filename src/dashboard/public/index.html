@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MAF Security Dashboard</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 20px; background: #f0f2f5; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    h1, h2 { color: #1a202c; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background: #f7fafc; font-weight: 600; }
+    .badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+    .badge-ALLOW { background: #c6f6d5; color: #22543d; }
+    .badge-BLOCK { background: #fed7d7; color: #742a2a; }
+    .badge-DROP_SESSION { background: #2d3748; color: #fff; }
+    .risk-high { color: #e53e3e; font-weight: bold; }
+    button { background: #3182ce; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #2b6cb0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>🛡️ MAF Dashboard</h1>
+      <div id="status">Status: Checking...</div>
+    </div>
+    
+    <div class="card">
+      <h2>Recent Security Events</h2>
+      <button onclick="loadEvents()">Refresh</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>IP</th>
+            <th>Route</th>
+            <th>Method</th>
+            <th>Risk</th>
+            <th>Decision</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="eventsTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    async function api(path, options = {}) {
+      options.headers = { ...options.headers, 'Authorization': 'admin' };
+      const res = await fetch('/api' + path, options);
+      return res.json();
+    }
+
+    async function checkHealth() {
+      try {
+        const data = await api('/ready');
+        document.getElementById('status').innerText = `System Status: ${data.status.toUpperCase()}`;
+      } catch (e) {
+        document.getElementById('status').innerText = 'System Status: OFFLINE (Backend Unreachable)';
+      }
+    }
+
+    async function loadEvents() {
+      try {
+        const events = await api('/events?limit=20');
+        const tbody = document.getElementById('eventsTable');
+        tbody.innerHTML = '';
+        
+        events.forEach(evt => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${new Date(evt.timestamp).toLocaleTimeString()}</td>
+            <td>${evt.ip}</td>
+            <td>${evt.route}</td>
+            <td>${evt.method}</td>
+            <td class="${evt.riskScore > 50 ? 'risk-high' : ''}">${evt.riskScore}</td>
+            <td><span class="badge badge-${evt.decision}">${evt.decision}</span></td>
+            <td><button onclick="replayEvent('${evt.eventId}')">Replay</button></td>
+          `;
+          tbody.appendChild(row);
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function replayEvent(id) {
+      const res = await api(`/replay/${id}`, { method: 'POST' });
+      alert(JSON.stringify(res, null, 2));
+    }
+
+    checkHealth();
+    loadEvents();
+  </script>
+</body>
+</html>
