@@ -36,7 +36,7 @@ export default function ThreatLogs() {
 
     const getFilteredAndSortedEvents = () => {
         let filtered = events;
-        
+
         if (filter !== 'ALL') {
             filtered = events.filter(evt => evt.aiDecision === filter);
         }
@@ -55,9 +55,9 @@ export default function ThreatLogs() {
     const displayedEvents = getFilteredAndSortedEvents();
 
     const SortIcon = ({ column }) => (
-        <ArrowUpDown 
-            size={14} 
-            className={`cursor-pointer hover:text-primary ${sortConfig.key === column ? 'text-primary' : 'text-tertiary'}`} 
+        <ArrowUpDown
+            size={14}
+            className={`cursor-pointer hover:text-primary ${sortConfig.key === column ? 'text-primary' : 'text-tertiary'}`}
             onClick={() => handleSort(column)}
         />
     );
@@ -67,11 +67,11 @@ export default function ThreatLogs() {
             <div className="flex flex-col gap-6 pb-10">
                 <div className="flex items-center justify-between">
                     <h1 className="text-xl font-semibold text-primary">Threat Logs</h1>
-                    
+
                     <div className="flex items-center gap-2">
                         <Filter size={16} className="text-secondary" />
-                        <select 
-                            value={filter} 
+                        <select
+                            value={filter}
                             onChange={(e) => setFilter(e.target.value)}
                             className="bg-panel border border-default text-sm text-primary rounded-md px-3 py-1.5 focus:outline-none focus:border-focus"
                         >
@@ -84,7 +84,7 @@ export default function ThreatLogs() {
 
                 <div className="card p-0 overflow-hidden">
                     <div className="overflow-x-auto">
-                        <table className="w-full text-left text-sm whitespace-nowrap">
+                        <table className="w-full text-left text-sm">
                             <thead className="bg-[var(--bg-panel)] border-b border-subtle">
                                 <tr>
                                     <th className="px-5 py-3 font-medium select-none">Time <SortIcon column="timestamp" /></th>
@@ -103,7 +103,7 @@ export default function ThreatLogs() {
                                             <td className="px-5 py-3 font-mono text-xs text-primary">{evt.ip || 'Unknown'}</td>
                                             <td className="px-5 py-3 font-mono text-xs text-secondary">{evt.method} {evt.path}</td>
                                             <td className="px-5 py-3 font-medium text-red-600">{evt.threat || '-'}</td>
-                                            <td className="px-5 py-3 text-secondary truncate max-w-xs" title={evt.aiReason}>{evt.aiReason}</td>
+                                            <td className="px-5 py-3 text-secondary whitespace-normal min-w-[300px]">{evt.aiReason}</td>
                                             <td className="px-5 py-3"><Badge status={evt.aiDecision} /></td>
                                         </tr>
                                     ))
