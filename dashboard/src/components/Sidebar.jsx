@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutGrid, Shield, Activity, Settings, FileText, Lock } from 'lucide-react';
+import { LayoutGrid, Shield, Activity, Settings, FileText, Lock, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const SidebarItem = ({ icon: Icon, label, path, active, onClick }) => {
@@ -23,7 +23,7 @@ const SidebarItem = ({ icon: Icon, label, path, active, onClick }) => {
     );
 };
 
-export const Sidebar = () => {
+export const Sidebar = ({ onClose }) => {
     const navigate = useNavigate();
     const location = useLocation();
     
@@ -43,6 +43,16 @@ export const Sidebar = () => {
                     <span className="font-semibold text-primary leading-tight">MAF</span>
                     <span className="text-[10px] text-secondary font-medium tracking-tight">Model App Firewall</span>
                 </div>
+                {onClose && (
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        aria-label="Close navigation"
+                        className="sidebar-close-btn ml-auto"
+                    >
+                        <X size={16} strokeWidth={1.5} />
+                    </button>
+                )}
             </div>
 
             <div className="flex-1 py-6 flex flex-col gap-2 px-3">
