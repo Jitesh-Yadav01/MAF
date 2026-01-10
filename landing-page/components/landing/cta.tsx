@@ -7,17 +7,17 @@ export function CTA() {
     const btnRef = useMagnetic();
 
     return (
-        <section className="py-32 border-t border-border/40 bg-muted/10">
+        <section className="py-32 border-t border-border/40 bg-gradient-to-b from-muted/10 to-background">
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                    Start Building with MAF
+                    Secure Your Backend Today
                 </h2>
                 <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
-                    Use MAF as your foundation and grow without rewriting everything later.
+                    Integrate MAF in minutes. Prevent 99.9% of application-layer attacks with a single SDK.
                 </p>
                 <div ref={btnRef as any} className="inline-block">
                     <Button size="lg" className="rounded-full px-10 h-12 text-base">
-                        Get Started
+                        Get API Keys
                     </Button>
                 </div>
             </div>

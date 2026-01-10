@@ -3,6 +3,9 @@ import { Hero } from "@/components/landing/hero";
 import { WhyMaf } from "@/components/landing/why-maf";
 import { CoreCapabilities } from "@/components/landing/core-capabilities";
 import { CodePreview } from "@/components/landing/code-preview";
+import { Security } from "@/components/landing/security";
+
+import { FAQ } from "@/components/landing/faq";
 import { CTA } from "@/components/landing/cta";
 import { Footer } from "@/components/landing/footer";
 import { Preloader } from "@/components/ui/preloader";
@@ -13,9 +16,12 @@ export default function Home() {
       <Preloader />
       <Navbar />
       <Hero />
+
       <WhyMaf />
       <CoreCapabilities />
       <CodePreview />
+      <Security />
+      <FAQ />
       <CTA />
       <Footer />
     </main>

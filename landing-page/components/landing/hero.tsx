@@ -24,7 +24,7 @@ export function Hero() {
     const secondaryBtnRef = useMagnetic();
 
     useEffect(() => {
-        // Initial setup: Set opacity to 0 via GSAP to ensure control
+        // Initial setup: Set opacity to 0 via GSAP
         gsap.set([badgeRef.current, titleRef.current, descRef.current, btnsRef.current], {
             opacity: 0,
             y: 50
@@ -36,7 +36,6 @@ export function Hero() {
             // Intro Animation
             const introTl = gsap.timeline({ delay: 2.2 });
 
-            // Use .to() because we are animating FROM the hidden state (set above) TO the visible state.
             introTl.to([badgeRef.current, titleRef.current, descRef.current, btnsRef.current], {
                 y: 0,
                 opacity: 1,
@@ -87,17 +86,18 @@ export function Hero() {
 
             <div ref={contentRef} className="container mx-auto px-6 flex flex-col items-center text-center z-10">
                 <div ref={badgeRef} className="mb-6 opacity-0">
-                    <Badge variant="secondary" className="px-3 py-1 rounded-full text-xs font-mono">
-                        v1.0 is now available
+                    <Badge variant="outline" className="px-3 py-1 text-xs font-mono border-primary/20 bg-primary/10 text-primary">
+                        SECURITY MIDDLEWARE SDK
                     </Badge>
                 </div>
 
                 <h1 ref={titleRef} className="mb-6 text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-5xl bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70 opacity-0">
-                    Build, Automate, and Scale with MAF
+                    Application-Level Request Security
                 </h1>
 
                 <p ref={descRef} className="mb-10 max-w-[700px] text-lg md:text-xl text-muted-foreground opacity-0">
-                    MAF is a modern platform for building scalable digital systems with speed, structure, and precision.
+                    Intercept malicious requests before they reach your business logic.
+                    Prevent session hijacking, device spoofing, and API abuse with a single robust SDK.
                 </p>
 
                 <div ref={btnsRef} className="flex flex-col sm:flex-row gap-4 items-center opacity-0">
@@ -107,7 +107,7 @@ export function Hero() {
                         </Button>
                     </div>
                     <div ref={secondaryBtnRef as any}>
-                        <Button variant="outline" size="lg" className="rounded-full px-8 h-12 text-base">
+                        <Button variant="ghost" size="lg" className="rounded-full px-8 h-12 text-base">
                             View Documentation
                         </Button>
                     </div>

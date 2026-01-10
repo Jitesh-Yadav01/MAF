@@ -154,8 +154,8 @@ export function FeatureStory() {
                             willChange: "transform, opacity",
                         }}
                     >
-                        <Badge variant="outline" className="mb-6 font-mono text-xs">{feature.badge}</Badge>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+                        <Badge variant="outline" className="mb-4 font-mono text-xs">{feature.badge}</Badge>
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
                             {feature.title}
                         </h2>
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">

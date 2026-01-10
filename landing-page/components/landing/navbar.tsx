@@ -15,54 +15,22 @@ import {
 import { cn } from "@/lib/utils";
 import React from "react";
 
-const components: { title: string; href: string; description: string }[] = [
+// Placeholder data for dropdowns if needed, or simple links
+const securityFeatures: { title: string; href: string; description: string }[] = [
     {
-        title: "Architecture",
+        title: "Data Handling",
         href: "#",
-        description: "Learn how MAF's modular design scales with your needs.",
+        description: "Encryption at rest and in transit. GDPR compliant.",
     },
     {
-        title: "Automation",
+        title: "Audit Logs",
         href: "#",
-        description: "Built-in CI/CD and workflow optimizations.",
+        description: "Immutable logs stored on MongoDB with blockchain anchoring.",
     },
     {
-        title: "Integrations",
+        title: "Deployment",
         href: "#",
-        description: "Connect with your favorite tools seamlessly.",
-    },
-    {
-        title: "Security",
-        href: "#",
-        description: "Enterprise-grade security defaults.",
-    },
-    {
-        title: "Performance",
-        href: "#",
-        description: "Optimized for speed and efficiency.",
-    },
-];
-
-const useCases: { title: string; href: string; description: string }[] = [
-    {
-        title: "Startups",
-        href: "#",
-        description: "Launch fast and scale without technical debt.",
-    },
-    {
-        title: "SaaS Products",
-        href: "#",
-        description: "Robust foundation for customer-facing applications.",
-    },
-    {
-        title: "Internal Tools",
-        href: "#",
-        description: "Rapidly build dashboards and admin panels.",
-    },
-    {
-        title: "Enterprise Systems",
-        href: "#",
-        description: "Scalable infrastructure for large organizations.",
+        description: "Edge, Cloud, or On-Premise options available.",
     },
 ];
 
@@ -79,61 +47,60 @@ export function Navbar() {
                         <NavigationMenu>
                             <NavigationMenuList>
                                 <NavigationMenuItem>
-                                    <Link href="#" legacyBehavior passHref>
-                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            Overview
-                                        </NavigationMenuLink>
-                                    </Link>
+                                    <NavigationMenuLink asChild>
+                                        <Link href="/" className={navigationMenuTriggerStyle()}>
+                                            Home
+                                        </Link>
+                                    </NavigationMenuLink>
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Platform</NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-popover">
-                                            {components.map((component) => (
-                                                <ListItem
-                                                    key={component.title}
-                                                    title={component.title}
-                                                    href={component.href}
-                                                >
-                                                    {component.description}
-                                                </ListItem>
-                                            ))}
-                                        </ul>
-                                    </NavigationMenuContent>
+                                    <NavigationMenuLink asChild>
+                                        <Link href="#how-it-works" className={navigationMenuTriggerStyle()}>
+                                            How It Works
+                                        </Link>
+                                    </NavigationMenuLink>
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Use Cases</NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-popover">
-                                            {useCases.map((useCase) => (
-                                                <ListItem
-                                                    key={useCase.title}
-                                                    title={useCase.title}
-                                                    href={useCase.href}
-                                                >
-                                                    {useCase.description}
-                                                </ListItem>
-                                            ))}
-                                        </ul>
-                                    </NavigationMenuContent>
+                                    <NavigationMenuLink asChild>
+                                        <Link href="#use-cases" className={navigationMenuTriggerStyle()}>
+                                            Use Cases
+                                        </Link>
+                                    </NavigationMenuLink>
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <Link href="#" legacyBehavior passHref>
-                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                    <NavigationMenuLink asChild>
+                                        <Link href="#docs" className={navigationMenuTriggerStyle()}>
                                             Docs
-                                        </NavigationMenuLink>
-                                    </Link>
+                                        </Link>
+                                    </NavigationMenuLink>
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <Link href="#" legacyBehavior passHref>
-                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            Community
-                                        </NavigationMenuLink>
-                                    </Link>
+                                    <NavigationMenuTrigger>Security</NavigationMenuTrigger>
+                                    <NavigationMenuContent>
+                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-popover">
+                                            {securityFeatures.map((feature) => (
+                                                <ListItem
+                                                    key={feature.title}
+                                                    title={feature.title}
+                                                    href={feature.href}
+                                                >
+                                                    {feature.description}
+                                                </ListItem>
+                                            ))}
+                                        </ul>
+                                    </NavigationMenuContent>
+                                </NavigationMenuItem>
+
+                                <NavigationMenuItem>
+                                    <NavigationMenuLink asChild>
+                                        <Link href="/pricing" className={navigationMenuTriggerStyle()}>
+                                            Pricing
+                                        </Link>
+                                    </NavigationMenuLink>
                                 </NavigationMenuItem>
 
                             </NavigationMenuList>
@@ -142,10 +109,10 @@ export function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
-                        GitHub
-                    </Button>
                     <ModeToggle />
+                    <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
+                        Login
+                    </Button>
                     <Button size="sm">Get Started</Button>
                 </div>
             </div>

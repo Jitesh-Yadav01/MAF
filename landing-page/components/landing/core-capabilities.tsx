@@ -5,27 +5,31 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { ShieldAlert, Fingerprint, Bot } from "lucide-react"; // Icons for use cases
 
 gsap.registerPlugin(ScrollTrigger);
 
 const capabilities = [
     {
         id: 1,
-        title: "Modular Architecture",
-        description: "Build systems using independent, reusable modules that scale effortlessly.",
-        badge: "Scalability",
+        title: "Session Hijacking & Replay",
+        description: "Detects inconsistencies in cookie signatures and IP variance. Prevents attackers from using stolen auth tokens.",
+        badge: "Identity Defense",
+        icon: <Fingerprint className="w-full h-full text-primary" />
     },
     {
         id: 2,
-        title: "Automation First",
-        description: "Automate workflows, deployments, and integrations by design.",
-        badge: "Efficiency",
+        title: "Credential Stuffing",
+        description: "Identifies and blocks high-velocity login attempts across distributed request sources. Protects user accounts from takeover.",
+        badge: "Auth Security",
+        icon: <ShieldAlert className="w-full h-full text-destructive" />
     },
     {
         id: 3,
-        title: "Developer Experience",
-        description: "Clean APIs, predictable patterns, and tools developers actually enjoy.",
-        badge: "Productivity",
+        title: "API Abuse & Automation",
+        description: "Rate limits malicious bots based on behavioral fingerprints, not just IP addresses. Stops scrapers and brute-force agents.",
+        badge: "Bot Mitigation",
+        icon: <Bot className="w-full h-full text-orange-400" />
     },
 ];
 
@@ -80,14 +84,14 @@ export function CoreCapabilities() {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative h-auto lg:h-screen w-full bg-background border-t border-border/10">
+        <section id="use-cases" ref={containerRef} className="relative h-auto lg:h-screen w-full bg-background border-t border-border/10">
             <div className="container mx-auto h-full px-6 py-24 lg:py-0 flex flex-col lg:block items-center justify-center">
                 {capabilities.map((cap, index) => (
                     <div
                         key={cap.id}
                         ref={(el) => { slidesRef.current[index] = el; }}
                         className={cn(
-                            "w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16",
+                            "w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-24",
                             "lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2",
                             index === 0 ? "lg:opacity-100" : "lg:opacity-0",
                             "mb-24 lg:mb-0 last:mb-0"
@@ -95,15 +99,15 @@ export function CoreCapabilities() {
                     >
                         {/* Visual Part (Left/Top) */}
                         <div className="flex-1 w-full flex justify-center md:justify-end">
-                            <div className="h-40 w-40 md:h-64 md:w-64 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center">
-                                <span className="text-4xl font-mono font-bold text-primary/40">0{cap.id}</span>
+                            <div className="h-48 w-48 md:h-80 md:w-80 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 flex items-center justify-center p-12 shadow-2xl">
+                                {cap.icon}
                             </div>
                         </div>
 
                         {/* Text Part (Right/Bottom) */}
                         <div className="flex-1 w-full text-center md:text-left">
                             <Badge variant="secondary" className="mb-4">{cap.badge}</Badge>
-                            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-foreground">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-foreground">
                                 {cap.title}
                             </h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">

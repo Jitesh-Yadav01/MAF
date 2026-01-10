@@ -87,12 +87,12 @@ export function CustomCursor() {
             {/* Small dot */}
             <div
                 ref={cursorRef}
-                className="fixed h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white mix-blend-difference"
+                className="fixed h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black dark:bg-white"
             />
             {/* Follower ring */}
             <div
                 ref={followerRef}
-                className="fixed h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30 mix-blend-difference"
+                className="fixed h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-black/30 dark:border-white/30"
             />
         </div>
     );
