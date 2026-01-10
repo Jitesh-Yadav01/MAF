@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lock, FileJson, Server, Activity } from "lucide-react";
+import { SlideIn } from "@/components/ui/slide-in";
 
 const features = [
     {
@@ -29,36 +30,40 @@ const features = [
 
 export function Security() {
     return (
-        <section id="security" className="py-24 bg-slate-950 border-t border-border/10">
+        <section id="security" className="py-24 border-t border-border/10">
             <div className="container mx-auto px-6">
-                <div className="flex flex-col items-center text-center mb-16">
-                    <Badge variant="outline" className="mb-4 border-primary/20 text-primary">
-                        Trust & Compliance
-                    </Badge>
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                        Built for Security-Critical Systems
-                    </h2>
-                    <p className="text-muted-foreground max-w-2xl">
-                        We prioritize transparency, auditability, and data sovereignty.
-                        Your security logic shouldn't be a mystery.
-                    </p>
-                </div>
+                <SlideIn>
+                    <div className="flex flex-col items-center text-center mb-16">
+                        <Badge variant="outline" className="mb-4 border-primary/20 text-primary">
+                            Trust & Compliance
+                        </Badge>
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                            Built for Security-Critical Systems
+                        </h2>
+                        <p className="text-muted-foreground max-w-2xl">
+                            We prioritize transparency, auditability, and data sovereignty.
+                            Your security logic shouldn't be a mystery.
+                        </p>
+                    </div>
+                </SlideIn>
 
                 <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                    {features.map((feature) => (
-                        <Card key={feature.title} className="bg-background/50 border-border/40">
-                            <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-                                    {feature.icon}
-                                </div>
-                                <CardTitle className="text-xl">{feature.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground leading-relaxed">
-                                    {feature.description}
-                                </p>
-                            </CardContent>
-                        </Card>
+                    {features.map((feature, index) => (
+                        <SlideIn key={feature.title} delay={index * 100} className="h-full">
+                            <Card className="bg-background/50 border-border/40 h-full">
+                                <CardHeader className="flex flex-row items-center gap-4 pb-2">
+                                    <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
+                                        {feature.icon}
+                                    </div>
+                                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </SlideIn>
                     ))}
                 </div>
             </div>

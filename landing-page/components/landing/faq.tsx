@@ -1,5 +1,6 @@
 "use client";
 
+import { SlideIn } from "@/components/ui/slide-in";
 import {
     Accordion,
     AccordionContent,
@@ -30,19 +31,25 @@ export function FAQ() {
     return (
         <section className="py-24 bg-background border-t border-border/10">
             <div className="container mx-auto px-6 max-w-3xl">
-                <h2 className="text-3xl font-bold tracking-tight text-center mb-12">
-                    Frequently Asked Questions
-                </h2>
-                <Accordion type="single" collapsible className="w-full">
+                <SlideIn>
+                    <h2 className="text-3xl font-bold tracking-tight text-center mb-12">
+                        Frequently Asked Questions
+                    </h2>
+                </SlideIn>
+                <div className="w-full">
                     {faqs.map((faq, index) => (
-                        <AccordionItem key={index} value={`item-${index}`}>
-                            <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
-                            <AccordionContent className="text-muted-foreground">
-                                {faq.answer}
-                            </AccordionContent>
-                        </AccordionItem>
+                        <SlideIn key={index} delay={index * 100} className="mb-4">
+                            <Accordion type="single" collapsible className="w-full">
+                                <AccordionItem value={`item-${index}`}>
+                                    <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                                    <AccordionContent className="text-muted-foreground">
+                                        {faq.answer}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        </SlideIn>
                     ))}
-                </Accordion>
+                </div>
             </div>
         </section>
     );

@@ -1,6 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image"; // Added import
+
+
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import {
@@ -36,11 +39,12 @@ const securityFeatures: { title: string; href: string; description: string }[] =
 
 export function Navbar() {
     return (
-        <nav className="fixed top-0 left-0 right-0 z-40 border-b bg-background/95 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60">
+        <nav className="fixed top-0 left-0 right-0 z-40 border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto flex h-16 items-center justify-between px-6">
                 <div className="flex items-center gap-8">
-                    <Link href="/" className="font-mono text-xl font-bold tracking-tight">
-                        MAF
+                    <Link href="/" className="flex items-center gap-3">
+                        <Image src="/eagle.svg" alt="MAF Logo" width={40} height={40} className="h-10 w-auto dark:invert" />
+                        <span className="font-jetbrains text-2xl font-bold">maf</span>
                     </Link>
 
                     <div className="hidden md:flex">

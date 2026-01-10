@@ -1,12 +1,5 @@
-"use client";
-
-import { useRef, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { useMagnetic } from "@/hooks/use-magnetic";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { SlideIn } from "@/components/ui/slide-in";
 
 const features = [
     {
@@ -36,10 +29,8 @@ const features = [
 ];
 
 function FeatureCard({ feature, index }: { feature: any; index: number }) {
-    const cardRef = useMagnetic();
-
     return (
-        <div ref={cardRef as any} className="feature-card opacity-0 translate-y-4">
+        <SlideIn delay={index * 100} className="h-full">
             <Card className="h-full bg-card border-muted/40 hover:border-border transition-colors">
                 <CardHeader>
                     <CardTitle className="text-lg">{feature.title}</CardTitle>
@@ -49,34 +40,13 @@ function FeatureCard({ feature, index }: { feature: any; index: number }) {
                     <div className="h-20 w-full rounded bg-muted/20 border border-muted/10 animate-pulse" />
                 </CardContent>
             </Card>
-        </div>
+        </SlideIn>
     );
 }
 
 export function FeatureGrid() {
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.to(".feature-card", {
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 80%",
-                    end: "bottom 20%",
-                },
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                stagger: 0.1,
-                ease: "power2.out",
-            });
-        }, containerRef);
-
-        return () => ctx.revert();
-    }, []);
-
     return (
-        <section ref={containerRef} className="py-24 bg-muted/30">
+        <section id="features" className="py-24 bg-muted/30">
             <div className="container mx-auto px-6">
                 <div className="mb-12 text-center">
                     <h2 className="text-3xl font-bold tracking-tight mb-4">Features</h2>

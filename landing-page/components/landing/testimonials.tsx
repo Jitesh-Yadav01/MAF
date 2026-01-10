@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User } from "lucide-react";
+import { SlideIn } from "@/components/ui/slide-in";
 
 const testimonials = [
     {
@@ -24,29 +25,33 @@ const testimonials = [
 
 export function Testimonials() {
     return (
-        <section className="py-24 bg-slate-950/30">
+        <section className="py-24 bg-muted/30">
             <div className="container mx-auto px-6">
-                <h2 className="text-3xl font-bold tracking-tight text-center mb-16">
-                    Loved by Engineering Teams
-                </h2>
+                <SlideIn>
+                    <h2 className="text-3xl font-bold tracking-tight text-center mb-16">
+                        Loved by Engineering Teams
+                    </h2>
+                </SlideIn>
                 <div className="grid md:grid-cols-3 gap-6">
-                    {testimonials.map((t) => (
-                        <Card key={t.name} className="bg-background/40 border-border/50">
-                            <CardHeader className="flex flex-row items-center gap-4">
-                                <Avatar>
-                                    <AvatarFallback className="bg-primary/10 text-primary border border-primary/20">
-                                        <User className="h-5 w-5" />
-                                    </AvatarFallback>
-                                </Avatar>
-                                <div>
-                                    <CardTitle className="text-base">{t.name}</CardTitle>
-                                    <p className="text-xs text-muted-foreground">{t.role}</p>
-                                </div>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground italic">"{t.content}"</p>
-                            </CardContent>
-                        </Card>
+                    {testimonials.map((t, index) => (
+                        <SlideIn key={t.name} delay={index * 100} className="h-full">
+                            <Card className="bg-background/40 border-border/50 h-full">
+                                <CardHeader className="flex flex-row items-center gap-4">
+                                    <Avatar>
+                                        <AvatarFallback className="bg-primary/10 text-primary border border-primary/20">
+                                            <User className="h-5 w-5" />
+                                        </AvatarFallback>
+                                    </Avatar>
+                                    <div>
+                                        <CardTitle className="text-base">{t.name}</CardTitle>
+                                        <p className="text-xs text-muted-foreground">{t.role}</p>
+                                    </div>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-muted-foreground italic">"{t.content}"</p>
+                                </CardContent>
+                            </Card>
+                        </SlideIn>
                     ))}
                 </div>
             </div>

@@ -8,6 +8,10 @@ import { Badge } from "@/components/ui/badge";
 import { Check, Clipboard, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import { SlideIn } from "@/components/ui/slide-in";
+
+// ... existing code ...
+
 export function CodePreview() {
     const [copied, setCopied] = useState(false);
 
@@ -17,18 +21,18 @@ export function CodePreview() {
     };
 
     return (
-        <section className="py-24 bg-background">
+        <section className="py-24">
             <div className="container mx-auto px-6 flex flex-col items-center">
-                <div className="preview-animate mb-12 text-center max-w-2xl">
+                <SlideIn className="mb-12 text-center max-w-2xl">
                     <h2 className="text-3xl font-bold tracking-tight mb-4">
                         Designed for Real-World Systems
                     </h2>
                     <p className="text-muted-foreground">
                         MAF adapts to startups, teams, and enterprises without forcing rigid structures.
                     </p>
-                </div>
+                </SlideIn>
 
-                <div className="w-full max-w-4xl preview-animate relative">
+                <SlideIn delay={200} className="w-full max-w-4xl relative">
                     {/* Decorative gradient glow behind the card */}
                     <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-primary/30 to-purple-500/30 blur-2xl opacity-50" />
 
@@ -99,7 +103,7 @@ await app.deploy({
                             </Card>
                         </TabsContent>
                     </Tabs>
-                </div>
+                </SlideIn>
             </div>
         </section>
     );

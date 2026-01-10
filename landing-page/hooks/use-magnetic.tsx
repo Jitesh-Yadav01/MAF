@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -16,7 +18,7 @@ export function useMagnetic() {
       const { height, width, left, top } = element.getBoundingClientRect();
       const x = clientX - (left + width / 2);
       const y = clientY - (top + height / 2);
-      
+
       // Only magnetize if within reasonable distance (optional, or rely on hover area)
       // Here we assume this event is triggered when hovering the element or close to it
       // But standard magnetic effect usually works on mouse move *over* the element.

@@ -81,7 +81,7 @@ export function Hero() {
         <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center">
             <div
                 ref={bgRef}
-                className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/50 via-background to-background"
+                className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"
             />
 
             <div ref={contentRef} className="container mx-auto px-6 flex flex-col items-center text-center z-10">
