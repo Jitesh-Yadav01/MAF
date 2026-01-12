@@ -20,7 +20,7 @@ const slides = [
     {
         id: 3,
         title: "3. Enforcement & Audit",
-        subtitle: "Malicious actors are blocked instantly. All decisions are logged to MongoDB with optional blockchain anchoring.",
+        subtitle: "Malicious actors are blocked instantly. All decisions are logged to Postgres with optional blockchain anchoring.",
         badge: "Decision",
     },
 ];

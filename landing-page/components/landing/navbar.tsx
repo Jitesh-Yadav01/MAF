@@ -28,7 +28,7 @@ const securityFeatures: { title: string; href: string; description: string }[] =
     {
         title: "Audit Logs",
         href: "#",
-        description: "Immutable logs stored on MongoDB with blockchain anchoring.",
+        description: "Immutable logs stored on Postgres with blockchain anchoring.",
     },
     {
         title: "Deployment",

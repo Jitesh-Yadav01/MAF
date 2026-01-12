@@ -1,48 +1,44 @@
-# MAF - AI-First Model Application Firewall
+# MAF - Application-Level Request Security
 
-Clean, minimal implementation where **ALL requests go to AI first** for security analysis.
+Intercept malicious requests before they reach your business logic. Prevent session hijacking, device spoofing, and API abuse with a single robust SDK.
 
-## Architecture
+## How It Works
 
-```
-Request → AI Analysis (OpenRouter) → Decision (BLOCK/ALLOW) → Forward/Drop
-```
+1. **Request Interception**  
+   Every request is paused before execution. We analyze headers, payload, and fingerprint against session history in Redis.
 
-## Setup
+2. **Limit & Risk Scoring**  
+   Deterministic rules evaluate velocity and entropy. AI agents flag high-risk anomalies for deeper inspection.
 
-1. Install dependencies:
-```bash
-npm install
-```
+3. **Enforcement & Audit**  
+   Malicious actors are blocked instantly. All decisions are logged to Postgres with optional blockchain anchoring.
 
-2. Create `.env` file:
-```env
-PORT=3000
-OPENROUTER_API_KEY=sk-or-v1-YOUR_KEY_HERE
-MAF_MODE=BLOCK
-```
+## Core Capabilities
 
-3. Start server:
-```bash
-npm start
-```
+### Session Hijacking & Replay
+Detects inconsistencies in cookie signatures and IP variance. Prevents attackers from using stolen auth tokens.
 
-4. Test at `http://localhost:3000`
+### Credential Stuffing
+Identifies and blocks high-velocity login attempts across distributed request sources. Protects user accounts from takeover.
 
-## Test SQL Injection
+### API Abuse & Automation
+Rate limits malicious bots based on behavioral fingerprints, not just IP addresses. Stops scrapers and brute-force agents.
 
-Try logging in with:
-- Username: `admin' OR '1'='1`
-- Password: anything
+## Dashboard for Developers
 
-The AI will detect and BLOCK the attack.
+- **Live Traffic Monitoring**: Watch requests as they are analyzed in real-time.
+- **Explainability**: See exactly *why* a request was blocked with risk score breakdowns.
+- **System Health**: Monitor auto-scaling status and operational metrics.
 
-## Logs
+## Immutable Audit Logs
 
-Watch terminal for:
-```
-[AI Firewall] Analyzing request: POST /api/login
-[AI Firewall] Raw AI Response: ...
-[AI Firewall] AI Decision: { "decision": "BLOCK", ... }
-[AI Firewall] BLOCKED: SQL injection detected
-```
+- **Tamper-Proof**: All decisions logged to Postgres.
+- **Blockchain Anchoring**: Optional audit trail integrity.
+- **Forensics**: AES-256 encrypted logs for deep investigation.
+
+## Agentic & Smarter Firewall
+
+- **Explainable AI**: Every decision comes with a reasoning trace, not just a block signal.
+- **Behavioral Analysis**: Agents evaluate entropy and velocity to flag zero-day anomalies.
+- **Context-Aware**: Fingerprints users against session history.
+

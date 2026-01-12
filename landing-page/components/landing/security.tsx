@@ -13,7 +13,7 @@ const features = [
     },
     {
         title: "Immutable Audit Logs",
-        description: "Every security decision (Block/Flag) is logged to a tamper-proof MongoDB cluster. Optional blockchain anchoring ensures audit trail integrity for compliance.",
+        description: "Every security decision (Block/Flag) is logged to a tamper-proof Postgres database. Optional blockchain anchoring ensures audit trail integrity for compliance.",
         icon: <FileJson className="h-6 w-6 text-primary" />,
     },
     {
