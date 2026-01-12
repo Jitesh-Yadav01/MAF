@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono,Arbutus } from "next/font/google"; // 1. Import
+import { Geist, Geist_Mono, JetBrains_Mono, Arbutus } from "next/font/google"; // 1. Import
 import "./globals.css";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased`}
       >

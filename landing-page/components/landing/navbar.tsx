@@ -5,7 +5,7 @@ import Image from "next/image"; // Added import
 
 
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/mode-toggle";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -60,7 +60,7 @@ export function Navbar() {
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="#how-it-works" className={navigationMenuTriggerStyle()}>
+                                        <Link href="/#how-it-works" className={navigationMenuTriggerStyle()}>
                                             How It Works
                                         </Link>
                                     </NavigationMenuLink>
@@ -68,7 +68,7 @@ export function Navbar() {
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="#use-cases" className={navigationMenuTriggerStyle()}>
+                                        <Link href="/#use-cases" className={navigationMenuTriggerStyle()}>
                                             Use Cases
                                         </Link>
                                     </NavigationMenuLink>
@@ -76,7 +76,7 @@ export function Navbar() {
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="#docs" className={navigationMenuTriggerStyle()}>
+                                        <Link href="/docs" className={navigationMenuTriggerStyle()}>
                                             Docs
                                         </Link>
                                     </NavigationMenuLink>
@@ -113,7 +113,7 @@ export function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <ModeToggle />
+                    <AnimatedThemeToggler />
                     <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
                         Login
                     </Button>
