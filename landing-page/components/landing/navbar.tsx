@@ -39,20 +39,20 @@ const securityFeatures: { title: string; href: string; description: string }[] =
 
 export function Navbar() {
     return (
-        <nav className="fixed top-0 left-0 right-0 z-40 border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
-            <div className="container mx-auto flex h-16 items-center justify-between px-6">
-                <div className="flex items-center gap-8">
-                    <Link href="/" className="flex items-center gap-3">
-                        <Image src="/eagle.svg" alt="MAF Logo" width={40} height={40} className="h-10 w-auto dark:invert" />
-                        <span className="font-jetbrains text-2xl font-bold">maf</span>
+        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[82%] max-w-7xl rounded-xl border border-white/10 bg-black/40 backdrop-blur-md shadow-2xl supports-[backdrop-filter]:bg-black/30">
+            <div className="flex h-18 items-center justify-between px-6">
+                <div className="flex items-center gap-6">
+                    <Link href="/" className="flex items-center gap-2">
+                        <Image src="/eagle.svg" alt="MAF Logo" width={24} height={24} className="h-6 w-auto dark:invert" />
+                        <span className="font-jetbrains text-lg font-bold text-white">MAF</span>
                     </Link>
 
-                    <div className="hidden md:flex">
+                    <div className="hidden md:flex items-center gap-1">
                         <NavigationMenu>
-                            <NavigationMenuList>
+                            <NavigationMenuList className="gap-1">
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="/" className={navigationMenuTriggerStyle()}>
+                                        <Link href="/" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
                                             Home
                                         </Link>
                                     </NavigationMenuLink>
@@ -60,15 +60,15 @@ export function Navbar() {
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="/#how-it-works" className={navigationMenuTriggerStyle()}>
+                                        <Link href="/#how-it-works" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
                                             How It Works
                                         </Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
-
+                                
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="/#use-cases" className={navigationMenuTriggerStyle()}>
+                                        <Link href="/#use-cases" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
                                             Use Cases
                                         </Link>
                                     </NavigationMenuLink>
@@ -76,16 +76,16 @@ export function Navbar() {
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="/docs" className={navigationMenuTriggerStyle()}>
+                                        <Link href="/docs" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
                                             Docs
                                         </Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Security</NavigationMenuTrigger>
+                                    <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white data-[active]:bg-transparent data-[state=open]:bg-transparent h-9">Security</NavigationMenuTrigger>
                                     <NavigationMenuContent>
-                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-popover">
+                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-black/90 border border-white/10 backdrop-blur-xl rounded-xl">
                                             {securityFeatures.map((feature) => (
                                                 <ListItem
                                                     key={feature.title}
@@ -101,7 +101,7 @@ export function Navbar() {
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="/pricing" className={navigationMenuTriggerStyle()}>
+                                        <Link href="/pricing" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
                                             Pricing
                                         </Link>
                                     </NavigationMenuLink>
@@ -114,10 +114,13 @@ export function Navbar() {
 
                 <div className="flex items-center gap-4">
                     <AnimatedThemeToggler />
-                    <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
-                        Login
+                    <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
+                        Log in
                     </Button>
-                    <Button size="sm">Get Started</Button>
+                    <Button className="rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
+                        <Image src="/windows.webp" alt="Windows" width={20} height={20} className="w-4 h-4" />
+                        Download
+                    </Button>
                 </div>
             </div>
         </nav>

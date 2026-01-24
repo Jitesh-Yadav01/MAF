@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 
 export const metadata: Metadata = {
-  title: "maf - Model Application Firewall",
+  title: "MAF",
   description: "maf - Model Application Firewall",
   icons: {
     icon: "/eagle.svg",
