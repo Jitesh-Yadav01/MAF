@@ -11,7 +11,7 @@ Intercept malicious requests before they reach your business logic. Prevent sess
    Deterministic rules evaluate velocity and entropy. AI agents flag high-risk anomalies for deeper inspection.
 
 3. **Enforcement & Audit**  
-   Malicious actors are blocked instantly. All decisions are logged to Postgres with optional blockchain anchoring.
+   Malicious actors are blocked instantly. All decisions are logged to MongoDB with optional blockchain anchoring.
 
 ## Core Capabilities
 
@@ -32,7 +32,7 @@ Rate limits malicious bots based on behavioral fingerprints, not just IP address
 
 ## Immutable Audit Logs
 
-- **Tamper-Proof**: All decisions logged to Postgres.
+- **Tamper-Proof**: All decisions logged to MongoDB.
 - **Blockchain Anchoring**: Optional audit trail integrity.
 - **Forensics**: AES-256 encrypted logs for deep investigation.
 

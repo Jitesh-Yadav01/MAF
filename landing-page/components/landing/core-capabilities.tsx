@@ -3,7 +3,7 @@
 import { SlideIn } from "@/components/ui/slide-in";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { Fingerprint, Bot, FileLock } from "lucide-react"; // Icons for use cases
+import {FileLock, Fingerprint, Bot } from "lucide-react"; // Icons for use cases
 
 const capabilities = [
     {
@@ -42,7 +42,7 @@ export function CoreCapabilities() {
                         >
                             {/* Visual Part (Left/Top) */}
                             <div className="flex-1 w-full flex justify-center md:justify-end">
-                                <div className="h-48 w-48 md:h-80 md:w-80 rounded-2xl bg-black opacity-95 border border-slate-700 flex items-center justify-center p-12 shadow-2xl">
+                                <div className="h-48 w-48 md:h-80 md:w-80 rounded-2xl bg-black backdrop-opacity-65 from-slate-800 to-slate-900 border border-slate-700 flex items-center justify-center p-12 shadow-2xl">
                                     {cap.icon}
                                 </div>
                             </div>
