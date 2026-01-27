@@ -58,14 +58,8 @@ export function Navbar() {
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
 
-                                <NavigationMenuItem>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/#how-it-works" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
-                                            How It Works
-                                        </Link>
-                                    </NavigationMenuLink>
-                                </NavigationMenuItem>
-                                
+
+
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
                                         <Link href="/#use-cases" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
@@ -78,6 +72,22 @@ export function Navbar() {
                                     <NavigationMenuLink asChild>
                                         <Link href="/docs" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
                                             Docs
+                                        </Link>
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
+
+                                <NavigationMenuItem>
+                                    <NavigationMenuLink asChild>
+                                        <Link href="/builds" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
+                                            Builds
+                                        </Link>
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
+
+                                <NavigationMenuItem>
+                                    <NavigationMenuLink asChild>
+                                        <Link href="/blogs" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
+                                            Blogs
                                         </Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>

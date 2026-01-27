@@ -3,7 +3,7 @@
 import { SlideIn } from "@/components/ui/slide-in";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { ShieldAlert, Fingerprint, Bot } from "lucide-react"; // Icons for use cases
+import { Fingerprint, Bot, FileLock } from "lucide-react"; // Icons for use cases
 
 const capabilities = [
     {
@@ -11,21 +11,21 @@ const capabilities = [
         title: "Session Hijacking & Replay",
         description: "Detects inconsistencies in cookie signatures and IP variance. Prevents attackers from using stolen auth tokens.",
         badge: "Identity Defense",
-        icon: <Fingerprint className="w-full h-full text-primary" />
+        icon: <Fingerprint className="w-full h-full " />
     },
     {
         id: 2,
         title: "Credential Stuffing",
         description: "Identifies and blocks high-velocity login attempts across distributed request sources. Protects user accounts from takeover.",
         badge: "Auth Security",
-        icon: <ShieldAlert className="w-full h-full text-destructive" />
+        icon: <FileLock className="w-full h-full " />
     },
     {
         id: 3,
         title: "API Abuse & Automation",
         description: "Rate limits malicious bots based on behavioral fingerprints, not just IP addresses. Stops scrapers and brute-force agents.",
         badge: "Bot Mitigation",
-        icon: <Bot className="w-full h-full text-orange-400" />
+        icon: <Bot className="w-full h-full " />
     },
 ];
 
@@ -42,7 +42,7 @@ export function CoreCapabilities() {
                         >
                             {/* Visual Part (Left/Top) */}
                             <div className="flex-1 w-full flex justify-center md:justify-end">
-                                <div className="h-48 w-48 md:h-80 md:w-80 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 flex items-center justify-center p-12 shadow-2xl">
+                                <div className="h-48 w-48 md:h-80 md:w-80 rounded-2xl bg-black opacity-95 border border-slate-700 flex items-center justify-center p-12 shadow-2xl">
                                     {cap.icon}
                                 </div>
                             </div>
