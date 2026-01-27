@@ -18,9 +18,9 @@ export default function Home() {
       <Hero />
 
       <div className="relative z-10 bg-background">
-        <WhyMaf />
-        <CoreCapabilities />
         <CodePreview />
+        {/* <WhyMaf /> */}
+        <CoreCapabilities />
         <Security />
         <FAQ />
         <CTA />
