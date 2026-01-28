@@ -86,8 +86,8 @@ export function Navbar() {
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
-                                        <Link href="/blogs" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
-                                            Blogs
+                                        <Link href="/developers" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent">
+                                            Developers
                                         </Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
@@ -125,10 +125,10 @@ export function Navbar() {
                 <div className="flex items-center gap-4">
                     <AnimatedThemeToggler />
                     <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
-                        Log in
+                        
                     </Button>
                     <Button className="rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
-                        <Image src="/windows.webp" alt="Windows" width={20} height={20} className="w-4 h-4" />
+                        <Image src="/windows.webp" color="black" alt="Windows" width={20} height={20} className="w-4 h-4" />
                         Download
                     </Button>
                 </div>

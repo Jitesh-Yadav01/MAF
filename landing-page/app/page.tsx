@@ -7,7 +7,7 @@ import { Security } from "@/components/landing/security";
 
 import { FAQ } from "@/components/landing/faq";
 import { CTA } from "@/components/landing/cta";
-import { Footer } from "@/components/landing/footer";
+import { Footer } from "@/components/footer/footer";
 import { Preloader } from "@/components/ui/preloader";
 
 export default function Home() {

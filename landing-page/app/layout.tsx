@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono, Arbutus } from "next/font/google"; // 1. Import
+import { Geist, Geist_Mono, JetBrains_Mono, Rubik_Storm } from "next/font/google"; // 1. Import
 import "./globals.css";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -19,6 +19,11 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+const rubikStorm = Rubik_Storm({
+  weight: "400",
+  variable: "--font-rubik-storm",
+  subsets: ["latin"],
+});
 
 
 export const metadata: Metadata = {
@@ -37,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} ${rubikStorm.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
