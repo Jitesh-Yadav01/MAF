@@ -1,6 +1,9 @@
 import { Navbar } from "@/components/landing/navbar";
-import { Pricing } from "@/components/landing/pricing";
-import { CTA } from "@/components/landing/cta";
+import { Pricing } from "@/components/pricing/pricing";
+import { PricingFeatures } from "@/components/pricing/pricing-features";
+import { PricingAddons } from "@/components/pricing/pricing-addons";
+import { PricingFAQ } from "@/components/pricing/pricing-faq";
+import { CTA } from "@/components/home/cta";
 import { Footer } from "@/components/footer/footer";
 
 export default function PricingPage() {
@@ -9,6 +12,9 @@ export default function PricingPage() {
             <Navbar />
             <div className="pt-24">
                 <Pricing />
+                <PricingFeatures />
+                <PricingAddons />
+                <PricingFAQ />
             </div>
             <CTA />
             <Footer />

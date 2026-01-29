@@ -16,7 +16,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   speed = 2,
   className,
   curveAmount = 400,
-  direction = 'left',
+  direction = 'right',
   interactive = true
 }) => {
   const text = useMemo(() => {
