@@ -1,9 +1,9 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/primitives/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/primitives/avatar";
 import { User } from "lucide-react";
-import { SlideIn } from "@/components/ui/slide-in";
+import { SlideIn } from "@/components/ui/effects/slide-in";
 
 const testimonials = [
     {

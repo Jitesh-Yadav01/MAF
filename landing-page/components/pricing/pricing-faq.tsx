@@ -5,8 +5,8 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion";
-import { SlideIn } from "@/components/ui/slide-in";
+} from "@/components/ui/primitives/accordion";
+import { SlideIn } from "@/components/ui/effects/slide-in";
 
 const faqs = [
     {

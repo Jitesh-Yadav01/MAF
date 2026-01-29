@@ -1,12 +1,12 @@
 "use client";
 
-import { SlideIn } from "@/components/ui/slide-in";
+import { SlideIn } from "@/components/ui/effects/slide-in";
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/components/ui/primitives/accordion";
 
 const faqs = [
     {

@@ -1,5 +1,5 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { SlideIn } from "@/components/ui/slide-in";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/primitives/card";
+import { SlideIn } from "@/components/ui/effects/slide-in";
 
 const features = [
     {

@@ -1,6 +1,6 @@
 "use client";
 
-import FallingText from "@/components/ui/falling-text";
+import FallingText from "@/components/ui/effects/falling-text";
 
 export function DevIntro() {
   return (

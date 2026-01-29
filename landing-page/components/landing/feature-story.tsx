@@ -1,7 +1,7 @@
 "use client";
 
-import { SlideIn } from "@/components/ui/slide-in";
-import { Badge } from "@/components/ui/badge";
+import { SlideIn } from "@/components/ui/effects/slide-in";
+import { Badge } from "@/components/ui/primitives/badge";
 import { cn } from "@/lib/utils";
 
 const features = [

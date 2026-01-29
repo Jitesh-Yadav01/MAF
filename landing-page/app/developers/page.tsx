@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/footer/footer";
-import { Preloader } from "@/components/ui/preloader";
+import { Preloader } from "@/components/ui/effects/preloader";
 import { DevHero } from "@/components/developers/dev-hero";
 import { DevIntro } from "@/components/developers/dev-intro";
 import { DevFlow } from "@/components/developers/dev-flow";

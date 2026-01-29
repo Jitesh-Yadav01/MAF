@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/primitives/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/primitives/tabs";
+import { Card, CardContent } from "@/components/ui/primitives/card";
+import { Badge } from "@/components/ui/primitives/badge";
 import { Check, Clipboard, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-import { SlideIn } from "@/components/ui/slide-in";
+import { SlideIn } from "@/components/ui/effects/slide-in";
 
 // ... existing code ...
 

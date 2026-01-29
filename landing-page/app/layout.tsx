@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono, Rubik_Storm } from "next/font/google"; // 1. Import
+import { Geist, Geist_Mono, JetBrains_Mono, Rubik_Glitch_Pop } from "next/font/google"; // 1. Import
 import "./globals.css";
-import { CustomCursor } from "@/components/ui/custom-cursor";
+import { CustomCursor } from "@/components/ui/effects/custom-cursor";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
@@ -19,9 +19,9 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const rubikStorm = Rubik_Storm({
+const rubikGlitchPop = Rubik_Glitch_Pop({
   weight: "400",
-  variable: "--font-rubik-storm",
+  variable: "--font-rubik-glitch-pop",
   subsets: ["latin"],
 });
 
@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} ${rubikStorm.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} ${rubikGlitchPop.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

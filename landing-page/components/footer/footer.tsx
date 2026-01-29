@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/primitives/separator";
 import CurvedLoop from "./curved-loop";
 
 export function Footer() {

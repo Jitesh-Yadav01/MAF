@@ -1,8 +1,8 @@
 "use client";
 
-import { SlideIn } from "@/components/ui/slide-in";
+import { SlideIn } from "@/components/ui/effects/slide-in";
 import { useMagnetic } from "@/hooks/use-magnetic";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
 
 export function CTA() {
     const btnRef = useMagnetic();

@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/primitives/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/primitives/card";
 import { Check, Shield, Zap, Users, Building } from "lucide-react";
-import { SlideIn } from "@/components/ui/slide-in";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { SlideIn } from "@/components/ui/effects/slide-in";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/primitives/tabs";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 

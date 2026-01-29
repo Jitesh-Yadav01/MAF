@@ -1,7 +1,7 @@
 "use client";
 
 import { Check, Minus } from "lucide-react";
-import { SlideIn } from "@/components/ui/slide-in";
+import { SlideIn } from "@/components/ui/effects/slide-in";
 
 const features = [
     {

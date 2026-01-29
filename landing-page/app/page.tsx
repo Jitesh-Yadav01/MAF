@@ -8,7 +8,7 @@ import { Security } from "@/components/home/security";
 import { FAQ } from "@/components/home/faq";
 import { CTA } from "@/components/home/cta";
 import { Footer } from "@/components/footer/footer";
-import { Preloader } from "@/components/ui/preloader";
+import { Preloader } from "@/components/ui/effects/preloader";
 
 export default function Home() {
   return (

@@ -1,9 +1,9 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/primitives/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/primitives/card";
 import { Lock, FileJson, Server, Activity } from "lucide-react";
-import { SlideIn } from "@/components/ui/slide-in";
+import { SlideIn } from "@/components/ui/effects/slide-in";
 
 const features = [
     {

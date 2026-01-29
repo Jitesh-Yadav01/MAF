@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { SlideIn } from "@/components/ui/slide-in";
+import { Badge } from "@/components/ui/primitives/badge";
+import { SlideIn } from "@/components/ui/effects/slide-in";
 
 const steps = [
     {

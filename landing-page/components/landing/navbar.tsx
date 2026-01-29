@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image"; // Added import
+import { Github } from "lucide-react";
 
 
-import { Button } from "@/components/ui/button";
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { Button } from "@/components/ui/primitives/button";
+import { AnimatedThemeToggler } from "@/components/ui/effects/animated-theme-toggler";
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -14,7 +15,7 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/components/ui/primitives/navigation-menu";
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -39,7 +40,7 @@ const securityFeatures: { title: string; href: string; description: string }[] =
 
 export function Navbar() {
     return (
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[82%] max-w-7xl rounded-xl border border-white/10 bg-black/40 backdrop-blur-md shadow-2xl supports-[backdrop-filter]:bg-black/30">
+        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-7xl rounded-xl border border-white/10 bg-black/40 backdrop-blur-md shadow-2xl supports-[backdrop-filter]:bg-black/30">
             <div className="flex h-18 items-center justify-between px-6">
                 <div className="flex items-center gap-6">
                     <Link href="/" className="flex items-center gap-2">
@@ -125,11 +126,13 @@ export function Navbar() {
                 <div className="flex items-center gap-4">
                     <AnimatedThemeToggler />
                     <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
-                        
+                        Login
                     </Button>
-                    <Button className="rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
-                        <Image src="/windows.webp" color="black" alt="Windows" width={20} height={20} className="w-4 h-4" />
-                        Download
+                    <Button asChild className="rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
+                        <Link href="https://github.com/Jitesh-Yadav01/maf" target="_blank">
+                            <Github className="w-4 h-4" />
+                            Star on GitHub
+                        </Link>
                     </Button>
                 </div>
             </div>

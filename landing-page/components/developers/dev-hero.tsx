@@ -1,11 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
 import { ArrowRight, Github } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import DecryptedText from "@/components/DecryptedText";
-import Shuffle from "@/components/ui/shuffle";
+import Shuffle from "@/components/ui/effects/shuffle";
 
 export function DevHero() {
   return (
@@ -75,7 +75,7 @@ export function DevHero() {
           </Button>
 
            <div className="flex items-center gap-4 sm:ml-4 text-sm text-muted-foreground">
-                <Link href="https://github.com/jrdevadattan/maf" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Link href="https://github.com/Jitesh-Yadav01/maf" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors">
                     <Github className="h-5 w-5" />
                     <span>Star on GitHub</span>
                 </Link>
