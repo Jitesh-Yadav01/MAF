@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/primitives/badge";
 import { Check, X, Copy, Terminal, ChevronRight, BarChart3, Activity, Shield, Zap, Search, Lock, Info, AlertTriangle, FileWarning, Globe, ShieldAlert, ShieldCheck, Ban } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import DecryptedText from "../DecryptedText";
-import PixelBlast from "./background/PixelBlast";
+import LightRays from "./background/LightRays";
 import { cn } from "@/lib/utils";
 import { SiStripe, SiVercel, SiCloudflare, SiSupabase, SiOpenai, SiGithub } from "react-icons/si";
 
@@ -115,24 +115,20 @@ export function Hero() {
     return (
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center pt-24 lg:pt-32">
             <div className="absolute inset-0 -z-10 bg-[#05050A]" ref={bgRef}>
-                <PixelBlast
-                    variant="square"
-                    pixelSize={4}
-                    color="#6D28D9"
-                    patternScale={2}
-                    patternDensity={1}
-                    pixelSizeJitter={0}
-                    enableRipples
-                    rippleSpeed={0.4}
-                    rippleThickness={0.12}
-                    rippleIntensityScale={1.5}
-                    liquid={false}
-                    liquidStrength={0.12}
-                    liquidRadius={1.2}
-                    liquidWobbleSpeed={5}
-                    speed={0.5}
-                    edgeFade={0.25}
-                    transparent
+                <LightRays
+                    raysOrigin="top-center"
+                    raysColor="#ffffff"
+                    raysSpeed={1}
+                    lightSpread={0.5}
+                    rayLength={3}
+                    followMouse={true}
+                    mouseInfluence={0.1}
+                    noiseAmount={0}
+                    distortion={0}
+                    className="custom-rays"
+                    pulsating={false}
+                    fadeDistance={1}
+                    saturation={1}
                 />
             </div>
 
@@ -161,7 +157,7 @@ export function Hero() {
                                     speed={100}
                                     maxIterations={15}
                                     characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-                                    className="bg-gradient-to-br from-white via-white/90 to-[#8B5CF6] bg-clip-text text-transparent rubik-glitch-pop-regular drop-shadow-[0_5px_15px_rgba(139,92,246,0.3)]"
+                                    className="bg-gradient-to-br from-white via-white/90 to-[#8B5CF6] bg-clip-text text-transparent jersey-20-regular drop-shadow-[0_5px_15px_rgba(139,92,246,0.3)]"
                                     parentClassName="inline-block"
                                     sequential={true}
                                 />
@@ -260,15 +256,15 @@ export function Hero() {
                                 transition={{ delay: 0.5, duration: 0.8 }}
                             >
                             <div className="text-[10px] font-bold tracking-widest text-gray-400 mb-3 uppercase flex items-center gap-2">
-                                     Trusted by Security Teams
+                                     Built for modern attacks
                                 </div>
-                                <div className="flex items-center gap-6 md:gap-8 flex-wrap grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                                {/* <div className="flex items-center gap-6 md:gap-8 flex-wrap grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                                     <SiStripe className="h-5 w-auto" />
                                     <SiVercel className="h-4 w-auto" />
                                     <SiCloudflare className="h-6 w-auto" />
                                     <SiSupabase className="h-5 w-auto" />
                                     <SiOpenai className="h-5 w-auto" />
-                                </div>
+                                </div> */}
                             </motion.div>
 
                         </motion.div>

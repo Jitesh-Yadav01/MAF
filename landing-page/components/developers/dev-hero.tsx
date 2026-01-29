@@ -16,9 +16,9 @@ export function DevHero() {
              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indigo-500/10 blur-[100px] rounded-full opacity-40 pointer-events-none" />
         </div>
 
-      <div className="mx-auto max-w-5xl space-y-10 relative z-10">
+      <div className="mx-auto max-w-5xl space-y-8 relative z-10">
         
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-medium font-mono mb-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-medium font-mono mb-3 animate-in fade-in slide-in-from-bottom-4 duration-1000">
              <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -41,7 +41,7 @@ export function DevHero() {
                 respectReducedMotion={true}
                 loop={false}
                 loopDelay={0}
-                className="text-5xl font-extrabold tracking-tight md:text-7xl lg:text-8xl leading-[1.1] text-white font-rubik-storm"
+                className="text-5xl font-extrabold tracking-tight md:text-7xl lg:text-8xl leading-[1.1] text-white tiny5-regular"
             />
         </div>
         
@@ -60,7 +60,7 @@ export function DevHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-8"
+            className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4"
         >
           <Button asChild size="lg" className="h-14 rounded-full px-10 text-lg bg-blue-600 hover:bg-blue-500 text-white border-0 shadow-[0_0_30px_-10px_rgba(37,99,235,0.6)] w-full sm:w-auto transition-all hover:scale-105 active:scale-95 duration-300 group">
             <Link href="/get-started">

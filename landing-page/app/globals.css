@@ -11,6 +11,8 @@
   --font-mono: var(--font-geist-mono);
   --font-jetbrains: var(--font-jetbrains-mono);
   --font-rubik-glitch-pop: var(--font-rubik-glitch-pop);
+  --font-jersey-20: var(--font-jersey-20);
+  --font-tiny5: var(--font-tiny5);
   /* --font-rubik-storm: var(--font-rubik-storm); Removed variable usage, using direct import */
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -145,5 +147,19 @@
 .font-rubik-storm {
   font-family: "Rubik Storm", system-ui !important;
   font-weight: 400 !important;
+  font-style: normal;
+}
+
+.jersey-20-regular {
+  font-family: var(--font-jersey-20), "Jersey 20", system-ui !important;
+  font-size: 90px !important;
+  font-weight: 900 !important;
+  font-style: normal;
+}
+
+.tiny5-regular {
+  font-family: var(--font-tiny5), "Tiny5", sans-serif !important;
+  font-size: 120px !important;
+  font-weight: 900 !important;
   font-style: normal;
 }
