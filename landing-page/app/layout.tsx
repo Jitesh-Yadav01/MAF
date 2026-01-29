@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, JetBrains_Mono, Rubik_Glitch_Pop } from "next/font/google"; // 1. Import
 import "./globals.css";
-import { CustomCursor } from "@/components/ui/effects/custom-cursor";
+import TargetCursor from "@/components/ui/effects/target-cursor";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
@@ -38,7 +38,7 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+  }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
@@ -50,7 +50,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <CustomCursor />
+          <TargetCursor
+            targetSelector="button, a, .cursor-target"
+            spinDuration={2}
+            hideDefaultCursor={true}
+            parallaxOn={true}
+            hoverDuration={0.2}
+          />
           {children}
         </ThemeProvider>
       </body>

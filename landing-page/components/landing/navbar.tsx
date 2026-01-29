@@ -6,7 +6,7 @@ import { Github } from "lucide-react";
 
 
 import { Button } from "@/components/ui/primitives/button";
-import { AnimatedThemeToggler } from "@/components/ui/effects/animated-theme-toggler";
+// import { AnimatedThemeToggler } from "@/components/ui/effects/animated-theme-toggler";
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -124,7 +124,7 @@ export function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <AnimatedThemeToggler />
+                    {/* <AnimatedThemeToggler /> */}
                     <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
                         Login
                     </Button>
