@@ -64,8 +64,8 @@ export function Navbar() {
             <div className="flex h-18 items-center justify-between px-6">
                 <div className="flex items-center gap-6">
                     <Link href="/" className="flex items-center gap-2">
-                        <Image src="/eagle.svg" alt="MAF Logo" width={24} height={24} className="h-6 w-auto dark:invert" />
-                        <span className="font-jetbrains text-lg font-bold text-white">MAF</span>
+                        <Image src="/eaglelogoWhite.svg" alt="MAF Logo" width={54} height={54} className="h-12 w-auto" />
+                        <span className="font-jersey-20 text-4xl font-bold text-white">MAF</span>
                     </Link>
 
                     <div className="hidden md:flex items-center gap-1">
