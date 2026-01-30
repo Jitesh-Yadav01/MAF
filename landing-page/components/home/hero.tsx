@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/primitives/badge";
 import { Check, X, Copy, Terminal, ChevronRight, BarChart3, Activity, Shield, Zap, Search, Lock, Info, AlertTriangle, FileWarning, Globe, ShieldAlert, ShieldCheck, Ban } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import DecryptedText from "../DecryptedText";
-import LightRays from "./background/LightRays";
+import PixelBlast from "./background/PixelBlast";
 import { cn } from "@/lib/utils";
 import { SiStripe, SiVercel, SiCloudflare, SiSupabase, SiOpenai, SiGithub } from "react-icons/si";
 
@@ -115,20 +115,27 @@ export function Hero() {
     return (
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center pt-24 lg:pt-32">
             <div className="absolute inset-0 -z-10 bg-[#05050A]" ref={bgRef}>
-                <LightRays
-                    raysOrigin="top-center"
-                    raysColor="#ffffff"
-                    raysSpeed={1}
-                    lightSpread={0.5}
-                    rayLength={3}
-                    followMouse={true}
-                    mouseInfluence={0.1}
+                <PixelBlast
+                    variant="square"
+                    pixelSize={4}
+                    color="#B19EEF"
+                    patternScale={2}
+                    opacity={0.5}
+                    patternDensity={1}
+                    pixelSizeJitter={0}
+                    enableRipples={true}
+                    rippleSpeed={0.4}
+                    rippleThickness={0.12}
+                    rippleIntensityScale={1.5}
+                    liquid={false}
+                    liquidStrength={0.12}
+                    liquidRadius={1.2}
+                    liquidWobbleSpeed={5}
+                    speed={0.5}
+                    edgeFade={0.25}
+                    transparent={true}
+                    className="absolute inset-0 z-0 opacity-40"
                     noiseAmount={0}
-                    distortion={0}
-                    className="custom-rays"
-                    pulsating={false}
-                    fadeDistance={1}
-                    saturation={1}
                 />
             </div>
 

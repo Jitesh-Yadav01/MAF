@@ -10,10 +10,12 @@ const sections = [
     { id: "how-maf-works", title: "How MAF Works" },
     { id: "core-features", title: "Core Features" },
     { id: "architecture-overview", title: "Architecture Overview" },
+    { id: "quick-start", title: "Quick Start" },
     { id: "integration-overview", title: "Integration Overview" },
     { id: "enforcement-modes", title: "Enforcement Modes" },
     { id: "developer-dashboard", title: "Developer Dashboard" },
     { id: "security-privacy", title: "Security & Privacy" },
+    { id: "references", title: "Research References" },
     { id: "faqs", title: "FAQs" },
 ];
 

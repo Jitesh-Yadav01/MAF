@@ -22,7 +22,7 @@ export default function DocsLayout({
 
             <Navbar />
 
-            <div className="container mx-auto flex-1 flex gap-12 px-6 pt-24 pb-12">
+            <div className="container mx-auto flex-1 flex gap-12 px-6 pt-32 pb-12">
                 <DocsSidebar />
                 <main className="flex-1 w-full min-w-0">
                     {children}
