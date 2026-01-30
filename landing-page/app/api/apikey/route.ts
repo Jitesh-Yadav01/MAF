@@ -1,8 +1,8 @@
 import { auth0 } from "@/lib/auth0";
 import { randomBytes } from "crypto";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   const session = await auth0.getSession(request);
   if (!session) {
     return new Response('Unauthorized', { status: 401 });
