@@ -148,12 +148,17 @@ export function Navbar() {
                     {profile?.user ? (
                         <>
                             <span className="hidden sm:inline-flex text-sm text-white">Hi, {profile.user.name ?? profile.user.email}</span>
+                            <Link href="/dashboard">
+                              <Button variant="outline" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
+                                Dashboard
+                              </Button>
+                            </Link>
                             <Button asChild className="hidden sm:inline-flex rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
                                 <a href="/auth/logout">Logout</a>
                             </Button>
                         </>
                     ) : (
-                        <Link href={"/auth/login"}>
+                        <Link href={"/auth/login?returnTo=/dashboard"}>
                         <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
                             Login
                         </Button>

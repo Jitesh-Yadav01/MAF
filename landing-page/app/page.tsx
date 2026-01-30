@@ -28,11 +28,11 @@ export default async function Home() {
         <div className="p-6">
           {!session ? (
             <div>
-              <a href="/auth/login" className="text-primary underline">
+              <a href="/auth/login?returnTo=/dashboard" className="text-primary underline">
                 Login
               </a>{" "}
               or {" "}
-              <a href="/auth/login?screen_hint=signup" className="text-primary underline">
+              <a href="/auth/login?screen_hint=signup&returnTo=/dashboard" className="text-primary underline">
                 Signup
               </a>
             </div>
