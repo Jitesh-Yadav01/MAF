@@ -42,7 +42,9 @@ export const metadata: Metadata = {
   title: "MAF",
   description: "maf - Model Application Firewall",
   icons: {
-    icon: "/eagle.svg",
+    icon: [
+      { url: "/eaglelogoBlack.svg", sizes: "8xl" },
+    ],
   },
 };
 
