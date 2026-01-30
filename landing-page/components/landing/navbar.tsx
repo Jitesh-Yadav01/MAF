@@ -125,9 +125,11 @@ export function Navbar() {
 
                 <div className="flex items-center gap-4">
                     {/* <AnimatedThemeToggler /> */}
+                    <Link href={"/auth/login"}>
                     <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
                         Login
                     </Button>
+                    </Link>
                     <Button asChild className="rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
                         <Link href="https://github.com/Jitesh-Yadav01/maf" target="_blank">
                             <Github className="w-4 h-4" />
