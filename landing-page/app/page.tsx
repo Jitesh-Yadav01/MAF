@@ -13,7 +13,14 @@ import { Preloader } from "@/components/ui/effects/preloader";
 import { auth0 } from "@/lib/auth0";
 
 export default async function Home() {
-  const session = await auth0.getSession();
+  let session = null;
+  try {
+    session = await auth0.getSession();
+  } catch (error) {
+    console.error("Failed to retrieve Auth0 session:", error);
+    // Proceed as logged out if session retrieval fails (e.g. missing env vars)
+  }
+
 
   return (
     <main className="flex min-h-screen flex-col selection:bg-primary/20">

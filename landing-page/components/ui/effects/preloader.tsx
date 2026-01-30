@@ -8,11 +8,24 @@ export function Preloader() {
     const counterRef = useRef<HTMLSpanElement>(null);
     const progressRef = useRef<HTMLDivElement>(null);
     const [isComplete, setIsComplete] = useState(false);
+    const [shouldRender, setShouldRender] = useState(true);
 
     useEffect(() => {
+        // Check if user has visited in this session
+        const hasVisited = sessionStorage.getItem("hasVisited");
+
+        if (hasVisited) {
+            setIsComplete(true);
+            setShouldRender(false);
+            return;
+        }
+
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({
-                onComplete: () => setIsComplete(true),
+                onComplete: () => {
+                    setIsComplete(true);
+                    sessionStorage.setItem("hasVisited", "true");
+                },
             });
 
             // 1. Counter Animation (0 -> 100)
@@ -48,7 +61,7 @@ export function Preloader() {
         return () => ctx.revert();
     }, []);
 
-    if (isComplete) return null;
+    if (isComplete || !shouldRender) return null;
 
     return (
         <div

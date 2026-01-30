@@ -59,7 +59,7 @@ export function Pricing() {
                             </CardContent>
                             <CardFooter>
                                 <Button className="w-full" variant="outline" asChild>
-                                    <Link href="/signup">Start Free</Link>
+                                    <Link href="/dashboard">Start Free</Link>
                                 </Button>
                             </CardFooter>
                         </Card>
