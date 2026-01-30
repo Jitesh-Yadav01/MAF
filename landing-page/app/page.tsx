@@ -25,26 +25,7 @@ export default async function Home() {
         <CodePreview />
 
         {/* Auth0 quickstart demo: show login/logout links and user info (server-side) */}
-        <div className="p-6">
-          {!session ? (
-            <div>
-              <a href="/auth/login?returnTo=/dashboard" className="text-primary underline">
-                Login
-              </a>{" "}
-              or {" "}
-              <a href="/auth/login?screen_hint=signup&returnTo=/dashboard" className="text-primary underline">
-                Signup
-              </a>
-            </div>
-          ) : (
-            <div>
-              <p className="mb-2">Logged in as {session.user.name ?? session.user.email}</p>
-              <a href="/auth/logout" className="text-primary underline">
-                Logout
-              </a>
-            </div>
-          )}
-        </div>
+
 
         <CoreCapabilities />
         {/* <WhyMaf /> */}
