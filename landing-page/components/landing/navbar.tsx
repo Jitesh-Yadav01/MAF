@@ -39,6 +39,26 @@ const securityFeatures: { title: string; href: string; description: string }[] =
 ];
 
 export function Navbar() {
+    const [profile, setProfile] = React.useState<any>(null);
+
+    React.useEffect(() => {
+        let mounted = true;
+        fetch('/auth/profile')
+            .then((res) => {
+                if (!res.ok) throw new Error('not-authenticated');
+                return res.json();
+            })
+            .then((data) => {
+                if (mounted) setProfile(data);
+            })
+            .catch(() => {
+                /* not logged in or error, keep profile null */
+            });
+        return () => {
+            mounted = false;
+        };
+    }, []);
+
     return (
         <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-7xl rounded-xl border border-white/10 bg-black/40 backdrop-blur-md shadow-2xl supports-[backdrop-filter]:bg-black/30">
             <div className="flex h-18 items-center justify-between px-6">
@@ -125,11 +145,20 @@ export function Navbar() {
 
                 <div className="flex items-center gap-4">
                     {/* <AnimatedThemeToggler /> */}
-                    <Link href={"/auth/login"}>
-                    <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
-                        Login
-                    </Button>
-                    </Link>
+                    {profile?.user ? (
+                        <>
+                            <span className="hidden sm:inline-flex text-sm text-white">Hi, {profile.user.name ?? profile.user.email}</span>
+                            <Button asChild className="hidden sm:inline-flex rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
+                                <a href="/auth/logout">Logout</a>
+                            </Button>
+                        </>
+                    ) : (
+                        <Link href={"/auth/login"}>
+                        <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
+                            Login
+                        </Button>
+                        </Link>
+                    )}
                     <Button asChild className="rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
                         <Link href="https://github.com/Jitesh-Yadav01/maf" target="_blank">
                             <Github className="w-4 h-4" />

@@ -38,7 +38,7 @@ export default async function Home() {
             </div>
           ) : (
             <div>
-              <p className="mb-2">Logged in as {session.user.email}</p>
+              <p className="mb-2">Logged in as {session.user.name ?? session.user.email}</p>
               <a href="/auth/logout" className="text-primary underline">
                 Logout
               </a>
