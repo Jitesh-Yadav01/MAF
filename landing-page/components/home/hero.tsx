@@ -120,7 +120,7 @@ export function Hero() {
                     pixelSize={4}
                     color="#B19EEF"
                     patternScale={2}
-                    opacity={0.5}
+
                     patternDensity={1}
                     pixelSizeJitter={0}
                     enableRipples={true}
