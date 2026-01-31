@@ -41,11 +41,7 @@ const tiny5 = Tiny5({
 export const metadata: Metadata = {
   title: "MAF",
   description: "maf - Model Application Firewall",
-  icons: {
-    icon: [
-      { url: "/eaglelogoBlack.svg", sizes: "8xl" },
-    ],
-  },
+
 };
 
 export default function RootLayout({
