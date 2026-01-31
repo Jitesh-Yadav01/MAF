@@ -80,12 +80,16 @@ export default function DashboardPanel({ user }: { user: any }) {
           </div>
 
           <div className="pt-4 border-t border-border">
-            <a
-              href="/auth/logout"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"
+            <Button
+              variant="link"
+              className="p-0 h-auto text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"
+              onClick={() => {
+                localStorage.removeItem("api key");
+                window.location.href = "/auth/logout";
+              }}
             >
               Log out
-            </a>
+            </Button>
           </div>
         </CardContent>
 
