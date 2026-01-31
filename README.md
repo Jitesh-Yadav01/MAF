@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![MAF Logo](public/eaglelogoWhite.svg)
+![MAF Logo](landing-page/public/eaglelogoWhite.svg)
 
 ### Contextual Security for Modern Applications
 
@@ -67,14 +67,14 @@ app.listen(3000, () => console.log('Server protected by MAF'));
 
 MAF's architecture is built upon cutting-edge research in web security and behavioral analysis.
 
-- **[WAFFLED: Exploiting Parsing Discrepancies to Bypass WAFs](public/references/waffled.pdf)**
+- **[WAFFLED: Exploiting Parsing Discrepancies to Bypass WAFs](landing-page/public/references/waffled.pdf)**
   > *Reveals over 1200 unique evasion techniques that bypass top WAFs by exploiting parsing mismatches. MAF's application-layer design eliminates this entire class of vulnerability.*
 
-- **[AI-Powered Behavioral Biometrics for Continuous Authentication](public/references/AI-Powered_Behavioral_Biometrics_for_Continuous_Authentication.pdf)**
+- **[AI-Powered Behavioral Biometrics for Continuous Authentication](landing-page/public/references/AI-Powered_Behavioral_Biometrics_for_Continuous_Authentication.pdf)**
   > *Foundational research for our Session Continuity engine, using deep learning to detect session hijacking with high accuracy.*
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by the MAF Team.</sub>
+  <sub>Built with ❤️ by TEAM Deniers.</sub>
 </div>
