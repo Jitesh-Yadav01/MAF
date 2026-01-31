@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
 import { SiStripe, SiVercel, SiCloudflare, SiSupabase, SiOpenai, SiGithub } from "react-icons/si";
 
 const tabs = [
-    { id: "node", label: "Node.js", command: "npm install maf-security" },
-    { id: "python", label: "Python", command: "pip install maf-security" },
-    { id: "go", label: "Go", command: "go get github.com/maf/security" },
+    { id: "express", label: "Express", command: "app.use(mafaiExpress(..configs)) " },
+    { id: "fastify", label: "Fastify", command: "fastify.register(mafaiFastify(..configs)) " },
+    { id: "next", label: "Nextapi", command: "next-api-route-handler(mafaiNext(..configs)) " },
 ];
 
 // --- Dynamic Threat Simulation Types & Data ---
@@ -178,7 +178,7 @@ export function Hero() {
                             <div className="w-full max-w-2xl mb-6">
                                 <div className="flex items-center justify-between mb-2 px-1">
                                     <h3 className="text-sm font-medium text-gray-300 flex items-center gap-2">
-                                        <Terminal className="w-4 h-4 text-white" /> Install MAF SDK
+                                        <Terminal className="w-4 h-4 text-white" /> npm install mafai
                                     </h3>
                                     <span className="text-[10px] text-gray-400 font-mono">v1.104.3</span>
                                 </div>

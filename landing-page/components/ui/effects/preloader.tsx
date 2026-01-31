@@ -58,7 +58,7 @@ export function Preloader() {
                     key="preloader"
                     initial={{ y: 0 }}
                     exit={{ y: "-100%", transition: { duration: 0.8, ease: "easeInOut" } }}
-                    className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background text-foreground"
+                    className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-background text-foreground"
                 >
                     {/* Large Counter */}
                     <div className="text-9xl font-bold font-mono tracking-tighter tabular-nums mb-8 flex items-end">

@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 
-const codeSnippet = `import { MAF } from "maf-security";
+const codeSnippet = `const express = require('express');
+const { mafaiExpress } = require('mafai');
 
-app.use(MAF({
-  redis: REDIS_URL,
-  mongo: MONGO_URL,
-  mode: "monitor"
+const app = express();
+
+app.use(express.json());
+
+app.use(mafaiExpress({
+    apiKey: "YOUR_MAF_APP_KEY",
+    engineUrl: "http://your-engine-ip:3001/evaluate"
 }));`;
 
 export function DevCode() {
@@ -76,23 +80,29 @@ export function DevCode() {
                <div className="p-6 font-mono text-sm md:text-base leading-relaxed overflow-x-auto relative">
                    {/* Line Numbers */}
                    <div className="absolute left-0 top-6 bottom-6 w-12 flex flex-col text-right pr-4 text-gray-700 select-none">
-                       {[1,2,3,4,5,6,7,8].map(n => <span key={n}>{n}</span>)}
+                       {[1,2,3,4,5,6,7,8,9,10,11,12].map(n => <span key={n}>{n}</span>)}
                    </div>
                    
                    <div className="pl-12">
                        <div className="text-gray-400">
-                           <span className="text-purple-400">import</span> {"{ MAF }"} <span className="text-purple-400">from</span> <span className="text-green-400">"maf-security"</span>;
+                           <span className="text-purple-400">const</span> express = <span className="text-yellow-400">require</span>(<span className="text-green-400">'express'</span>);
+                       </div>
+                       <div className="text-gray-400">
+                           <span className="text-purple-400">const</span> {"{ mafaiExpress }"} = <span className="text-yellow-400">require</span>(<span className="text-green-400">'mafai'</span>);
                        </div>
                        <div className="h-4" />
-                       <div className="text-gray-400 line-through decoration-gray-700 decoration-2 opacity-50">
-                           // const legacyFirewall = require("old-waf");
+                       <div className="text-gray-400">
+                           <span className="text-purple-400">const</span> app = <span className="text-blue-400">express</span>();
+                       </div>
+                       <div className="h-4" />
+                       <div className="text-gray-400">
+                           <span className="text-blue-400">app</span>.<span className="text-yellow-400">use</span>(<span className="text-blue-400">express</span>.<span className="text-yellow-400">json</span>());
                        </div>
                        <div className="h-4" />
                        <div className="text-gray-300">
-                            <span className="text-blue-400">app</span>.<span className="text-yellow-400">use</span>(MAF({"{"}
-                            {"\n  "}redis: <span className="text-orange-400">process.env.REDIS_URL</span>,
-                            {"\n  "}mongo: <span className="text-orange-400">process.env.MONGO_URL</span>,
-                            {"\n  "}mode: <span className="text-green-400">"monitor"</span> <span className="text-gray-600">// Start safely</span>
+                            <span className="text-blue-400">app</span>.<span className="text-yellow-400">use</span>(mafaiExpress({"{"}
+                            {"\n  "}apiKey: <span className="text-green-400">"YOUR_MAF_APP_KEY"</span>,
+                            {"\n  "}engineUrl: <span className="text-green-400">"http://your-engine-ip:3001/evaluate"</span>
                             {"\n"}{"}"}));
                        </div>
                    </div>

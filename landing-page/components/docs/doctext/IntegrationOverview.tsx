@@ -1,4 +1,5 @@
 import { DocsSection } from "@/components/docs/docs-section";
+import { CodeBlock } from "@/components/ui/code-block";
 
 export function IntegrationOverview() {
     return (
@@ -7,15 +8,17 @@ export function IntegrationOverview() {
                 We prioritize a developer-friendly integration process. Currently, we support Node.js environments with first-party middleware for common frameworks.
             </p>
             <div className="my-4">
-                <pre className="p-4 rounded-lg bg-black/50 border border-border">
-                    <code>{`// Example Express.js Integration
-import { maf } from '@maf/sdk';
+                <CodeBlock code={`const express = require('express');
+const { mafaiExpress } = require('mafai');
 
-app.use(maf.middleware({
-apiKey: process.env.MAF_API_KEY,
-mode: 'monitor' // Start safely
-}));`}</code>
-                </pre>
+const app = express();
+
+app.use(express.json());
+
+app.use(mafaiExpress({
+    apiKey: "YOUR_MAF_APP_KEY",
+    engineUrl: "http://your-engine-ip:3001/evaluate"
+}));`} />
             </div>
             <p>
                 Typical rollout strategy:
