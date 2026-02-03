@@ -1,13 +1,13 @@
-import { Navbar } from "@/components/landing/navbar";
-import { Hero } from "@/components/home/hero";
-import { WhyMaf } from "@/components/home/why-maf";
-import { CoreCapabilities } from "@/components/home/core-capabilities";
+
+import { Navbar } from "@/components/responsiveness/navbar";
+import { Hero } from "@/components/responsiveness/hero";
 import { CodePreview } from "@/components/home/code-preview";
+import { CoreCapabilities } from "@/components/home/core-capabilities";
 import { Security } from "@/components/home/security";
 
 import { FAQ } from "@/components/home/faq";
 import { CTA } from "@/components/home/cta";
-import { Footer } from "@/components/footer/footer";
+import { Footer } from "@/components/responsiveness/footer";
 import { Preloader } from "@/components/ui/effects/preloader";
 
 import { auth0 } from "@/lib/auth0";

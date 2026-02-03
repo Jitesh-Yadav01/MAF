@@ -1,9 +1,9 @@
 import { auth0 } from "@/lib/auth0";
 import { redirect } from "next/navigation";
-import DashboardPanel from "@/components/dashboard/dashboard-panel";
-import { Navbar } from "@/components/landing/navbar";
+import DashboardPanel from "@/components/responsiveness/dashboard-panel";
+import { Navbar } from "@/components/responsiveness/navbar";
 import { Preloader } from "@/components/ui/effects/preloader";
-import { Footer } from "@/components/footer/footer";
+import { Footer } from "@/components/responsiveness/footer";
 
 export default async function DashboardPage() {
   const session = await auth0.getSession();

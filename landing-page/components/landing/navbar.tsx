@@ -1,12 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image"; // Added import
+import Image from "next/image";
 import { Github } from "lucide-react";
 
-
 import { Button } from "@/components/ui/primitives/button";
-// import { AnimatedThemeToggler } from "@/components/ui/effects/animated-theme-toggler";
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -14,12 +12,11 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
 } from "@/components/ui/primitives/navigation-menu";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-// Placeholder data for dropdowns if needed, or simple links
+// Placeholder data for dropdowns
 const securityFeatures: { title: string; href: string; description: string }[] = [
     {
         title: "Data Handling",
@@ -78,8 +75,6 @@ export function Navbar() {
                                         </Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
-
-
 
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild>
@@ -144,32 +139,33 @@ export function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    {/* <AnimatedThemeToggler /> */}
-                    {profile?.user ? (
-                        <>
-                            <span className="hidden sm:inline-flex text-sm text-white">Hi, {profile.user.name ?? profile.user.email}</span>
-                            <Link href="/dashboard">
-                              <Button variant="outline" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
-                                Dashboard
-                              </Button>
-                            </Link>
-                            <Button asChild className="hidden sm:inline-flex rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
-                                <a href="/auth/logout">Logout</a>
+                    <div className="hidden md:flex items-center gap-4">
+                        {profile?.user ? (
+                            <>
+                                <span className="hidden lg:inline-flex text-sm text-white">Hi, {profile.user.name ?? profile.user.email}</span>
+                                <Link href="/dashboard">
+                                <Button variant="outline" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
+                                    Dashboard
+                                </Button>
+                                </Link>
+                                <Button asChild className="hidden sm:inline-flex rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
+                                    <a href="/auth/logout">Logout</a>
+                                </Button>
+                            </>
+                        ) : (
+                            <Link href={"/auth/login?returnTo=/dashboard"}>
+                            <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
+                                Login
                             </Button>
-                        </>
-                    ) : (
-                        <Link href={"/auth/login?returnTo=/dashboard"}>
-                        <Button variant="ghost" size="sm" className="hidden sm:inline-flex text-muted-foreground hover:text-white hover:bg-transparent">
-                            Login
+                            </Link>
+                        )}
+                        <Button asChild className="rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
+                            <Link href="https://github.com/Jitesh-Yadav01/maf" target="_blank">
+                                <Github className="w-4 h-4" />
+                                Star on GitHub
+                            </Link>
                         </Button>
-                        </Link>
-                    )}
-                    <Button asChild className="rounded-lg bg-white text-black hover:bg-white/90 font-medium px-6 h-9 gap-2 text-sm">
-                        <Link href="https://github.com/Jitesh-Yadav01/maf" target="_blank">
-                            <Github className="w-4 h-4" />
-                            Star on GitHub
-                        </Link>
-                    </Button>
+                    </div>
                 </div>
             </div>
         </nav>

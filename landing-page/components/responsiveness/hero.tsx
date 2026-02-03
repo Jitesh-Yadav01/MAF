@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/primitives/badge";
 import { Check, X, Copy, Terminal, ChevronRight, BarChart3, Activity, Shield, Zap, Search, Lock, Info, AlertTriangle, FileWarning, Globe, ShieldAlert, ShieldCheck, Ban } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import DecryptedText from "../DecryptedText";
-import PixelBlast from "./background/PixelBlast";
+import PixelBlast from "../home/background/PixelBlast";
 import { cn } from "@/lib/utils";
 import { SiStripe, SiVercel, SiCloudflare, SiSupabase, SiOpenai, SiGithub } from "react-icons/si";
 
@@ -113,7 +113,7 @@ export function Hero() {
     };
 
     return (
-        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center pt-24 lg:pt-32">
+        <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-32 lg:pt-32 pb-12 lg:pb-0">
             <div className="absolute inset-0 -z-10 bg-[#05050A]" ref={bgRef}>
                 <PixelBlast
                     variant="square"
@@ -139,15 +139,16 @@ export function Hero() {
                 />
             </div>
 
-            <div className="container mx-auto px-6 h-full flex items-center z-10">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 w-full h-full max-h-[800px] py-4">
+            <div className="container mx-auto px-4 md:px-6 h-full flex items-center z-10 w-full relative">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-12 w-full pt-10 lg:pt-0">
 
                     {/* Left Content */}
-                    <div className="flex-[1.2] text-left w-full max-w-3xl flex flex-col justify-center">
+                    <div className="flex-[1.2] text-center lg:text-left w-full max-w-3xl flex flex-col items-center lg:items-start justify-center">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
+                            className="flex flex-col items-center lg:items-start w-full"
                         >
                             <Badge
                                 variant="outline"
@@ -156,7 +157,7 @@ export function Hero() {
                                 <Shield className="w-3 h-3 mr-1.5 text-violet-400" /> SECURITY MIDDLEWARE SDK
                             </Badge>
 
-                            <h1 className="mb-6 text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1]">
+                            <h1 className="mb-6 text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1] md:leading-[1.1] lg:leading-[1] w-full">
                                 <DecryptedText
                                     text="Application-level request security"
                                     animateOn="view"
@@ -164,18 +165,18 @@ export function Hero() {
                                     speed={100}
                                     maxIterations={15}
                                     characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-                                    className="bg-gradient-to-br from-white via-white/90 to-[#8B5CF6] bg-clip-text text-transparent jersey-20-regular drop-shadow-[0_5px_15px_rgba(139,92,246,0.3)]"
-                                    parentClassName="inline-block"
+                                    className="bg-gradient-to-br from-white via-white/90 to-[#8B5CF6] bg-clip-text text-transparent jersey-20-regular drop-shadow-[0_5px_15px_rgba(139,92,246,0.3)] block w-full"
+                                    parentClassName="inline-block w-full"
                                     sequential={true}
                                 />
                             </h1>
 
-                            <p className="mb-8 text-lg md:text-xl text-gray-200 leading-relaxed max-w-xl">
+                            <p className="mb-8 text-lg md:text-xl text-gray-200 leading-relaxed max-w-xl mx-auto lg:mx-0">
                                 Intercept malicious requests before they reach your business logic. Prevent session hijacking, device spoofing, and API abuse with a single robust SDK.
                             </p>
 
                             {/* Bun-style Install Block */}
-                            <div className="w-full max-w-2xl mb-6">
+                            <div className="w-full max-w-2xl mb-8">
                                 <div className="flex items-center justify-between mb-2 px-1">
                                     <h3 className="text-sm font-medium text-gray-300 flex items-center gap-2">
                                         <Terminal className="w-4 h-4 text-white" /> npm install mafai
@@ -186,13 +187,13 @@ export function Hero() {
                                     <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                                     
                                     {/* Tabs */}
-                                    <div className="flex items-center border-b border-white/10 bg-white/5">
+                                    <div className="flex items-center border-b border-white/10 bg-white/5 overflow-x-auto no-scrollbar">
                                         {tabs.map((tab) => (
                                             <button
                                                 key={tab.id}
                                                 onClick={() => setActiveTab(tab.id)}
                                                 className={cn(
-                                                    "relative px-5 py-3 text-xs font-medium transition-colors hover:text-white focus:outline-none",
+                                                    "relative px-4 sm:px-5 py-3 text-[10px] sm:text-xs font-medium transition-colors hover:text-white focus:outline-none whitespace-nowrap",
                                                     activeTab === tab.id ? "text-white" : "text-muted-foreground"
                                                 )}
                                             >
@@ -210,7 +211,7 @@ export function Hero() {
 
                                     {/* Command Content */}
                                     <div className="p-4 flex items-center justify-between relative pl-5">
-                                        <div className="flex items-center gap-3 font-mono text-sm text-white/90 overflow-x-auto no-scrollbar">
+                                        <div className="flex items-center gap-3 font-mono text-xs sm:text-sm text-white/90 overflow-x-auto no-scrollbar scroll-smooth w-full">
                                             <ChevronRight className="w-4 h-4 text-primary shrink-0" /> 
                                             <AnimatePresence mode="wait">
                                                 <motion.span
@@ -219,6 +220,7 @@ export function Hero() {
                                                     animate={{ opacity: 1, y: 0 }}
                                                     exit={{ opacity: 0, y: -5 }}
                                                     transition={{ duration: 0.2 }}
+                                                    className="whitespace-nowrap"
                                                 >
                                                     {tabs.find(t => t.id === activeTab)?.command}
                                                 </motion.span>
@@ -226,7 +228,7 @@ export function Hero() {
                                         </div>
                                         <button
                                             onClick={handleCopy}
-                                            className="ml-4 p-2 rounded-lg hover:bg-white/10 transition-colors text-muted-foreground hover:text-white group/copy"
+                                            className="ml-4 p-2 rounded-lg hover:bg-white/10 transition-colors text-muted-foreground hover:text-white group/copy shrink-0"
                                             title="Copy to clipboard"
                                         >
                                             <AnimatePresence mode="wait" initial={false}>
@@ -262,16 +264,9 @@ export function Hero() {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.5, duration: 0.8 }}
                             >
-                            <div className="text-[10px] font-bold tracking-widest text-gray-400 mb-3 uppercase flex items-center gap-2">
+                            <div className="text-[10px] font-bold tracking-widest text-gray-400 mb-3 uppercase flex items-center gap-2 justify-center lg:justify-start">
                                      Built for modern attacks
                                 </div>
-                                {/* <div className="flex items-center gap-6 md:gap-8 flex-wrap grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                                    <SiStripe className="h-5 w-auto" />
-                                    <SiVercel className="h-4 w-auto" />
-                                    <SiCloudflare className="h-6 w-auto" />
-                                    <SiSupabase className="h-5 w-auto" />
-                                    <SiOpenai className="h-5 w-auto" />
-                                </div> */}
                             </motion.div>
 
                         </motion.div>
@@ -284,7 +279,7 @@ export function Hero() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.6, duration: 0.5 }}
-                            className="w-full flex justify-end"
+                            className="w-full flex justify-end lg:justify-end justify-center" // Centered on mobile
                         >
                              <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20 shadow-[0_0_10px_-2px_rgba(16,185,129,0.3)]">
                                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> LIVE TRAFFIC MONITOR
@@ -305,33 +300,33 @@ export function Hero() {
                                  {/* Animated Gradient Border */}
                                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-primary/5 to-transparent opacity-30 pointer-events-none" />
 
-                                 <div className="p-6 md:p-8 flex flex-col relative w-full h-[500px]">
+                                 <div className="p-4 md:p-6 lg:p-8 flex flex-col relative w-full h-[400px] md:h-[500px]">
                                     
                                     {/* Console Header */}
-                                    <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+                                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 pb-4 border-b border-white/10 gap-3">
                                         <div className="flex gap-2">
                                             <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50" />
                                             <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
                                             <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50" />
                                         </div>
-                                        <div className="text-[10px] font-mono text-gray-400 flex items-center gap-4">
-                                            <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> us-east-1</span>
+                                        <div className="w-full sm:w-auto text-[10px] font-mono text-gray-400 flex items-center justify-between sm:justify-end gap-3 sm:gap-4 overflow-x-auto no-scrollbar">
+                                            <span className="flex items-center gap-1 shrink-0"><Globe className="w-3 h-3" /> us-east-1</span>
                                             <span className="text-white/40">|</span>
-                                            <span>Inbound: {stats.requests}/s</span>
+                                            <span className="shrink-0">Inbound: {stats.requests}/s</span>
                                             <span className="text-white/40">|</span>
-                                            <span className="text-red-400">Blocked: {stats.blocked}</span>
+                                            <span className="text-red-400 shrink-0">Blocked: {stats.blocked}</span>
                                         </div>
                                     </div>
                                     
                                     {/* Table Header */}
-                                    <div className="grid grid-cols-[1.5fr_1fr_1fr] gap-4 mb-4 text-[10px] font-bold text-gray-500 tracking-widest uppercase px-1">
+                                    <div className="grid grid-cols-[1.5fr_1fr_1fr] gap-2 md:gap-4 mb-4 text-[10px] font-bold text-gray-500 tracking-widest uppercase px-1">
                                         <div>Request Type</div>
                                         <div>Legacy WAF</div>
                                         <div className="text-right">MAF Response</div>
                                     </div>
 
                                     {/* Live Threat Rows - Animated Stream */}
-                                    <div className="flex flex-col space-y-3 font-mono text-xs overflow-hidden relative flex-1">
+                                    <div className="flex flex-col space-y-2 md:space-y-3 font-mono text-xs overflow-hidden relative flex-1">
                                         <AnimatePresence initial={false}>
                                             {events.map((threat) => (
                                                 <motion.div 
@@ -340,26 +335,26 @@ export function Hero() {
                                                     animate={{ opacity: 1, x: 0, height: "auto" }}
                                                     exit={{ opacity: 0, x: -20, height: 0, transition: { duration: 0.2 } }}
                                                     transition={{ duration: 0.4, ease: "easeOut" }}
-                                                    className="grid grid-cols-[1.5fr_1fr_1fr] gap-4 items-center p-3 rounded-lg border border-white/5 bg-white/5 hover:bg-white/10 transition-colors"
+                                                    className="grid grid-cols-[1.5fr_1fr_1fr] gap-2 md:gap-4 items-center p-2 md:p-3 rounded-lg border border-white/5 bg-white/5 hover:bg-white/10 transition-colors"
                                                 >
                                                     {/* Request Type */}
-                                                    <div className="flex flex-col gap-1">
+                                                    <div className="flex flex-col gap-1 min-w-0">
                                                         <div className="flex items-center gap-2 text-gray-200 font-medium">
-                                                            <FileWarning className="w-3 h-3 text-red-400" />
-                                                            <span className="truncate">{threat.type}</span>
+                                                            <FileWarning className="w-3 h-3 text-red-400 shrink-0" />
+                                                            <span className="truncate text-[10px] sm:text-xs">{threat.type}</span>
                                                         </div>
-                                                        <span className="text-[9px] text-muted-foreground truncate opacity-50">{threat.payload}</span>
+                                                        <span className="text-[9px] text-muted-foreground truncate opacity-50 hidden sm:block">{threat.payload}</span>
                                                     </div>
                                                     
                                                     {/* WAF Status */}
                                                     <div className="flex items-center gap-2">
                                                         {threat.waf_status === "Missed" ? (
-                                                             <Badge variant="outline" className="text-[9px] px-2 py-0 h-5 border-red-500/30 text-red-500 bg-red-500/5">
-                                                                <X className="w-2.5 h-2.5 mr-1" /> Missed
+                                                             <Badge variant="outline" className="text-[9px] px-1.5 sm:px-2 py-0 h-5 border-red-500/30 text-red-500 bg-red-500/5 whitespace-nowrap">
+                                                                <X className="w-2.5 h-2.5 mr-1 hidden sm:inline-block" /> Missed
                                                              </Badge>
                                                         ) : threat.waf_status === "False Positive" ? (
-                                                            <Badge variant="outline" className="text-[9px] px-2 py-0 h-5 border-yellow-500/30 text-yellow-500 bg-yellow-500/5">
-                                                                <AlertTriangle className="w-2.5 h-2.5 mr-1" /> False Pos
+                                                            <Badge variant="outline" className="text-[9px] px-1.5 sm:px-2 py-0 h-5 border-yellow-500/30 text-yellow-500 bg-yellow-500/5 whitespace-nowrap">
+                                                                <AlertTriangle className="w-2.5 h-2.5 mr-1 hidden sm:inline-block" /> False Pos
                                                             </Badge>
                                                         ) : (
                                                             <span className="text-[9px] text-gray-600">--</span>
@@ -369,19 +364,19 @@ export function Hero() {
                                                     {/* MAF Status */}
                                                     <div className="flex flex-col items-end gap-1">
                                                         {threat.maf_status === "Blocked" ? (
-                                                            <Badge variant="outline" className="text-[9px] px-2 py-0.5 h-6 border-emerald-500/30 text-emerald-400 bg-emerald-500/10 shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)]">
-                                                                <Shield className="w-2.5 h-2.5 mr-1.5" /> Blocked
+                                                            <Badge variant="outline" className="text-[9px] px-1.5 sm:px-2 py-0.5 h-6 border-emerald-500/30 text-emerald-400 bg-emerald-500/10 shadow-[0_0_10px_-3px_rgba(16,185,129,0.2)] whitespace-nowrap">
+                                                                <Shield className="w-2.5 h-2.5 mr-1.5 hidden sm:inline-block" /> Blocked
                                                             </Badge>
                                                         ) : threat.maf_status === "Verified" ? (
-                                                             <Badge variant="outline" className="text-[9px] px-2 py-0.5 h-6 border-blue-500/30 text-blue-400 bg-blue-500/10">
-                                                                <Check className="w-2.5 h-2.5 mr-1.5" /> Verified
+                                                             <Badge variant="outline" className="text-[9px] px-1.5 sm:px-2 py-0.5 h-6 border-blue-500/30 text-blue-400 bg-blue-500/10 whitespace-nowrap">
+                                                                <Check className="w-2.5 h-2.5 mr-1.5 hidden sm:inline-block" /> Verified
                                                             </Badge>
                                                         ) : (
-                                                             <Badge variant="outline" className="text-[9px] px-2 py-0.5 h-6 border-orange-500/30 text-orange-400 bg-orange-500/10">
-                                                                <Lock className="w-2.5 h-2.5 mr-1.5" /> Challenge
+                                                             <Badge variant="outline" className="text-[9px] px-1.5 sm:px-2 py-0.5 h-6 border-orange-500/30 text-orange-400 bg-orange-500/10 whitespace-nowrap">
+                                                                <Lock className="w-2.5 h-2.5 mr-1.5 hidden sm:inline-block" /> Challenge
                                                             </Badge>
                                                         )}
-                                                        <span className="text-[9px] text-muted-foreground">{threat.maf_context}</span>
+                                                        <span className="text-[9px] text-muted-foreground hidden sm:block">{threat.maf_context}</span>
                                                     </div>
                                                 </motion.div>
                                             ))}
@@ -401,8 +396,8 @@ export function Hero() {
                                             />
                                         </div>
                                         <div className="text-[10px] text-gray-400 font-mono flex items-center gap-3">
-                                            <span>Scanning...</span>
-                                            <span className="w-px h-3 bg-white/10" />
+                                            <span className="hidden sm:inline">Scanning...</span>
+                                            <span className="w-px h-3 bg-white/10 hidden sm:inline" />
                                             <span className="tabular-nums">Latency: {stats.latency}ms</span>
                                         </div>
                                     </div>

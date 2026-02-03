@@ -1,6 +1,6 @@
 import { GalleryVerticalEnd } from "lucide-react"
 import { LoginForm } from "@/components/login-form"
-import { Navbar } from "@/components/landing/navbar"
+import { Navbar } from "@/components/responsiveness/navbar";
 import { Preloader } from "@/components/ui/effects/preloader"
 
 export default function LoginPage() {

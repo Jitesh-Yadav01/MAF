@@ -1,9 +1,9 @@
 "use client";
 
-import { Navbar } from "@/components/landing/navbar";
-import { Footer } from "@/components/footer/footer";
+import { Navbar } from "@/components/responsiveness/navbar";
+import { Footer } from "@/components/responsiveness/footer";
 import { Preloader } from "@/components/ui/effects/preloader";
-import { DevHero } from "@/components/developers/dev-hero";
+import { DevHero } from "@/components/responsiveness/developers/dev-hero";
 import { DevIntro } from "@/components/developers/dev-intro";
 import { DevFlow } from "@/components/developers/dev-flow";
 import { DevStack } from "@/components/developers/dev-stack";
